@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{43CE9844-DC1A-4F45-864C-844023F64F74}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GUI_StudentManagement</RootNamespace>
+    <AssemblyName>GUI_StudentManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Student\AddStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\AddStudentForm.Designer.cs">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\ListSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\ListSearchForm.Designer.cs">
+      <DependentUpon>ListSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\ListViewStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\ListViewStudentForm.Designer.cs">
+      <DependentUpon>ListViewStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\PrintStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\PrintStudentForm.Designer.cs">
+      <DependentUpon>PrintStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\StudentManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\StudentManagementForm.Designer.cs">
+      <DependentUpon>StudentManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\UpdateStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\UpdateStudentForm.Designer.cs">
+      <DependentUpon>UpdateStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\Login_Child.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\Login_Child.Designer.cs">
+      <DependentUpon>Login_Child.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\Register_Child.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\Register_Child.Designer.cs">
+      <DependentUpon>Register_Child.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Student\AddStudentForm.resx">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\ListSearchForm.resx">
+      <DependentUpon>ListSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\ListViewStudentForm.resx">
+      <DependentUpon>ListViewStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\PrintStudentForm.resx">
+      <DependentUpon>PrintStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\StudentManagementForm.resx">
+      <DependentUpon>StudentManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\UpdateStudentForm.resx">
+      <DependentUpon>UpdateStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\Login_Child.resx">
+      <DependentUpon>Login_Child.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="User\Register_Child.resx">
+      <DependentUpon>Register_Child.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recources\Logo\LogoAccount.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS_StudentManagement\BUS_StudentManagement.csproj">
+      <Project>{5e5304e9-981c-4f9b-b07a-6c88284ec010}</Project>
+      <Name>BUS_StudentManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO_StudentManagement\DTO_StudentManagement.csproj">
+      <Project>{cb8482bd-2b2d-45ba-98c5-958ec355f323}</Project>
+      <Name>DTO_StudentManagement</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recources\Icon\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recources\Logo\nonePic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recources\Logo\SearchIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="recources\Logo\uploadIcon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

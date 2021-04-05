@@ -1,0 +1,156 @@
+﻿using DTO_StudentManagement;
+using BUS_StudentManagement;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace GUI_StudentManagement.Student
+{
+    public partial class UpdateStudentForm : Form
+    {
+        BUS_Student BUSstudent = new BUS_Student();
+        public UpdateStudentForm()
+        {
+            InitializeComponent();
+        }
+
+        private void btnUpLoadPic_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opnfd = new OpenFileDialog();
+            opnfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
+            if (opnfd.ShowDialog() == DialogResult.OK)
+            {
+                pictureStudent.Image = new Bitmap(opnfd.FileName);
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(this.txtID.Text);
+            string fname = this.txtFirstName.Text;
+            string lname = txtLastName.Text;
+            DateTime bdt = (DateTime)this.dateBirthDay.Value;
+            string phone = this.txtPhone.Text;
+            string adr = this.txtAddress.Text;
+            string gender = "Male";
+            if (this.radioFemale.Checked == true)
+                gender = "Female";
+            MemoryStream pic = new MemoryStream();
+            this.pictureStudent.Image.Save(pic, pictureStudent.Image.RawFormat);
+            DTO_Student student = new DTO_Student(id, lname, fname, bdt, phone, adr, gender, pic);
+            if (student.verif())
+            {
+                if (BUSstudent.updateStudent(student) == true)
+                {
+                    MessageBox.Show("Student Updated", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Update Error", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            try { 
+                    int StudentID = Convert.ToInt32(this.txtID.Text);
+                    if (MessageBox.Show("Are you sure aboud remove this Student", "Delete STudent", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (BUSstudent.deleteStudent(StudentID) == true)
+                        {
+                            MessageBox.Show("Student deleted", "Student delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.txtID.Text = "";
+                            txtFirstName.Text = "";
+                            txtLastName.Text = "";
+                            txtPhone.Text = "";
+                            txtLastName.Text = "";
+                            dateBirthDay.Value = DateTime.Now;
+                            pictureStudent.Image = null;
+                            radioMale.Checked = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Student can't deleted", "Student delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                 }
+            catch
+            {
+                MessageBox.Show("Please enter a valid ID", "Student delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+
+
+        private void Showdialog(string Querycommand)
+        {
+            ListSearchForm f = new ListSearchForm();
+            SqlCommand command = new SqlCommand(Querycommand);
+            f.gridviewStudent.ReadOnly = true;
+            DataGridViewImageColumn picCol = new DataGridViewImageColumn();
+            f.gridviewStudent.RowTemplate.Height = 80;
+            f.gridviewStudent.DataSource = BUSstudent.getStudents(command);
+            picCol = (DataGridViewImageColumn)f.gridviewStudent.Columns[7];
+            picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            f.gridviewStudent.AllowUserToAddRows = false;
+            f.Show();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM std WHERE CONCAT(fname,lname,address) LIKE '%" + txtSearch.Text + "%'";
+            Showdialog(query);
+        }
+
+        private void txtID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnFindId_Click(object sender, EventArgs e)
+        {
+            try {
+                int id = int.Parse(txtID.Text);
+                SqlCommand command = new SqlCommand("SELECT id, fname, lname, bdate, gender, phone, address, picture FROM std WHERE id = " + id);
+                DataTable table = BUSstudent.getStudents(command);
+                if (table.Rows.Count > 0)
+                {
+                    txtFirstName.Text = table.Rows[0]["fname"].ToString();
+                    txtLastName.Text = table.Rows[0]["lname"].ToString();
+                    dateBirthDay.Value = (DateTime)table.Rows[0]["bdate"];
+                    if (table.Rows[0]["gender"].ToString() == "Female    ")
+                        radioFemale.Checked = true;
+                    else
+                        radioMale.Checked = true;
+                    txtPhone.Text = table.Rows[0]["phone"].ToString();
+                    txtAddress.Text = table.Rows[0]["address"].ToString();
+
+                    byte[] pic;
+                    pic = (byte[])table.Rows[0]["picture"];
+                    MemoryStream picture = new MemoryStream(pic);
+                    pictureStudent.Image = Image.FromStream(picture);
+                }
+                else
+                {
+                    MessageBox.Show("not found ", "Find Student", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Find Student", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+    }
+}
