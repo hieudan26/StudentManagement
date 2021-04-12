@@ -16,5 +16,10 @@ namespace GUI_StudentManagement.Student
         {
             InitializeComponent();
         }
+
+        private void gridviewStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

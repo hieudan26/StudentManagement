@@ -40,6 +40,7 @@ namespace GUI_StudentManagement.Student
             this.gridviewStudent.Name = "gridviewStudent";
             this.gridviewStudent.Size = new System.Drawing.Size(799, 451);
             this.gridviewStudent.TabIndex = 0;
+            this.gridviewStudent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridviewStudent_CellContentClick);
             // 
             // ListSearchForm
             // 

@@ -91,14 +91,13 @@ namespace GUI_StudentManagement.Student
 
 
 
-        private void Showdialog(string Querycommand)
+        private void Showdialog(DataTable dtb)
         {
             ListSearchForm f = new ListSearchForm();
-            SqlCommand command = new SqlCommand(Querycommand);
             f.gridviewStudent.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             f.gridviewStudent.RowTemplate.Height = 80;
-            f.gridviewStudent.DataSource = BUSstudent.getStudents(command);
+            f.gridviewStudent.DataSource = dtb;
             picCol = (DataGridViewImageColumn)f.gridviewStudent.Columns[7];
             picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
             f.gridviewStudent.AllowUserToAddRows = false;
@@ -107,8 +106,8 @@ namespace GUI_StudentManagement.Student
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM std WHERE CONCAT(fname,lname,address) LIKE '%" + txtSearch.Text + "%'";
-            Showdialog(query);
+            DataTable dtb = BUSstudent.SearchFull(this.txtSearch.Text);
+            Showdialog(dtb);
         }
 
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)
@@ -123,8 +122,7 @@ namespace GUI_StudentManagement.Student
         {
             try {
                 int id = int.Parse(txtID.Text);
-                SqlCommand command = new SqlCommand("SELECT id, fname, lname, bdate, gender, phone, address, picture FROM std WHERE id = " + id);
-                DataTable table = BUSstudent.getStudents(command);
+                DataTable table = BUSstudent.getStudentsId(id);
                 if (table.Rows.Count > 0)
                 {
                     txtFirstName.Text = table.Rows[0]["fname"].ToString();
@@ -151,6 +149,11 @@ namespace GUI_StudentManagement.Student
             {
                 MessageBox.Show(ex.Message, "Find Student", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -36,6 +37,36 @@ namespace DAL_StudentManagement
                 return false;
             }
         }
+        public DataTable getStudentsId(int id)
+        {
+            SqlCommand command = new SqlCommand("SELECT id, fname, lname, bdate, gender, phone, address, picture FROM std WHERE id = " + id);
+            command.Connection = this.getConnection;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            return table;
+        }
+        public DataTable SearchFull(string text)
+        {
+            SqlCommand command = new SqlCommand("SELECT * FROM std WHERE CONCAT(fname,lname,address) LIKE '%" + text + "%'");
+            command.Connection = this.getConnection;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            return table;
+        }
+        public DataTable getAllStudent()
+        {
+            SqlCommand command = new SqlCommand("SELECT * FROM std");
+            command.Connection = this.getConnection;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            return table;
+        }
         public DataTable getStudents(SqlCommand command)
         {
             command.Connection = this.getConnection;
@@ -45,7 +76,7 @@ namespace DAL_StudentManagement
 
             return table;
         }
-        public bool verifyStudent(DTO_Student student)
+            public bool verifyStudent(DTO_Student student)
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
 
@@ -156,6 +187,62 @@ namespace DAL_StudentManagement
             {
                 return 0;
             }
+        }
+        public DataTable FilterStudent(bool YesBtn, bool MaleBtn, DateTime dateBeforeDate, DateTime dateAfterDay)
+        {
+            SqlCommand cmd;
+            if (YesBtn == false)
+            {
+                cmd = new SqlCommand("SELECT * FROM std");
+            }
+            else
+            {
+                cmd = new SqlCommand("SELECT * FROM std WHERE bdate BETWEEN @bf_Date  AND @at_Date");
+                cmd.Parameters.Add("@bf_Date", SqlDbType.Date).Value = dateBeforeDate;
+                cmd.Parameters.Add("@at_Date", SqlDbType.Date).Value = dateAfterDay;
+            }
+            if (MaleBtn == true)
+            {
+                if (YesBtn == false)
+                {
+                    cmd = new SqlCommand("SELECT * FROM std WHERE gender = @gender");
+                    cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = "Male";
+                }
+                else
+                {
+                    cmd = new SqlCommand("SELECT * FROM std WHERE gender = @gender AND bdate BETWEEN @bf_Date  AND @at_Date");
+                    cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = "Male";
+                    cmd.Parameters.Add("@bf_Date", SqlDbType.Date).Value = dateBeforeDate;
+                    cmd.Parameters.Add("@at_Date", SqlDbType.Date).Value = dateAfterDay;
+                }
+
+            }
+            else if (MaleBtn == false)
+            {
+                if (YesBtn == false)
+                {
+                    cmd = new SqlCommand("SELECT * FROM std WHERE gender = @gender");
+                    cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = "Female";
+                }
+                else
+                {
+                    cmd = new SqlCommand("SELECT * FROM std WHERE gender = @gender AND bdate BETWEEN @bf_Date  AND @at_Date");
+                    cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = "Female";
+                    cmd.Parameters.Add("@bf_Date", SqlDbType.Date).Value = dateBeforeDate;
+                    cmd.Parameters.Add("@at_Date", SqlDbType.Date).Value = dateAfterDay;
+                }
+            }
+            return this.getStudents(cmd);
+        }
+        public DataTable getAllIfnoStudent()
+        {
+            SqlCommand command = new SqlCommand("SELECT id,fname,lname FROM std");
+            command.Connection = this.getConnection;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            return table;
         }
     }
 }

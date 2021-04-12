@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL_Account.cs" />
+    <Compile Include="DAL_Course.cs" />
+    <Compile Include="DAL_Score.cs" />
     <Compile Include="DAL_Student.cs" />
     <Compile Include="myDB.cs" />
     <Compile Include="UserControl1.cs">

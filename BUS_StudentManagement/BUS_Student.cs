@@ -22,6 +22,10 @@ namespace BUS_StudentManagement
             return  DALstudent.getStudents(command);
         }
 
+        public DataTable getStudentsId(int id)
+        {
+            return DALstudent.getStudentsId(id);
+        }
         public bool verifyStudent(DTO_Student student)
         {
             return DALstudent.verifyStudent(student);
@@ -37,6 +41,14 @@ namespace BUS_StudentManagement
             return DALstudent.updateStudent(student);
         }
 
+        public DataTable SearchFull(string txt)
+        {
+            return DALstudent.SearchFull(txt);
+        }
+        public DataTable getAllStudent()
+        {
+            return DALstudent.getAllStudent();
+        }
         public int totalStudent()
         {
             return DALstudent.totalStudent();
@@ -50,6 +62,15 @@ namespace BUS_StudentManagement
         public int totalFemaleStudent()
         {
             return DALstudent.totalFemaleStudent();
+        }
+
+        public DataTable FilterStudent(bool YesBtn, bool MaleBtn, DateTime dateBeforeDate, DateTime dateAfterDay)
+        {
+            return DALstudent.FilterStudent(YesBtn, MaleBtn, dateBeforeDate, dateAfterDay);
+        }
+        public DataTable getAllIfnoStudent()
+        {
+            return DALstudent.getAllStudent();
         }
     }
 }

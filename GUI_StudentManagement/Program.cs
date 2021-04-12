@@ -1,4 +1,7 @@
-﻿using GUI_StudentManagement.Student;
+﻿using GUI_StudentManagement.Course;
+using GUI_StudentManagement.Score;
+using GUI_StudentManagement.Student;
+using Login_form;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +20,7 @@ namespace GUI_StudentManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new User());
+            Application.Run(new ManageCourseForm());
         }
     }
 }

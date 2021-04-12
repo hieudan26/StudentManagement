@@ -75,6 +75,7 @@ namespace GUI_StudentManagement.Student
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(222, 22);
             this.txtSearch.TabIndex = 50;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // dateBirthDay
             // 

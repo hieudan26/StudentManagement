@@ -215,6 +215,7 @@ namespace GUI_StudentManagement.Student
             this.SaveButton.TabIndex = 9;
             this.SaveButton.Text = "Save to text";
             this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // gridviewStudent
             // 
@@ -257,6 +258,7 @@ namespace GUI_StudentManagement.Student
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PrintStudentForm";
             this.Text = "PrintStudentForm";
+            this.Load += new System.EventHandler(this.PrintStudentForm_Load);
             this.groupFilter.ResumeLayout(false);
             this.groupFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewStudent)).EndInit();

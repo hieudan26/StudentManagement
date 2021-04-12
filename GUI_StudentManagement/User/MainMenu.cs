@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GUI_StudentManagement.Score;
+using Login_form;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,6 +55,59 @@ namespace GUI_StudentManagement.Student
         }
 
         private void StudentMenu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCourseForm tempForm = new AddCourseForm();
+            tempForm.Show();
+        }
+
+        private void removeCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveCourseForm tempForm = new RemoveCourseForm();
+            tempForm.Show();
+        }
+
+        private void editCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditCourseForm tempForm = new EditCourseForm();
+            tempForm.Show();
+        }
+
+        private void manageCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CourseManagamentForm tempForm = new CourseManagamentForm();
+            tempForm.Show();
+        }
+
+        private void addScoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddScoreForm tempForm = new AddScoreForm();
+            tempForm.Show();
+        }
+
+        private void aVGScoreByCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AVGCourseForm tempForm = new AVGCourseForm();
+            tempForm.Show();
+        }
+
+        private void manageScoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageScore tempForm = new ManageScore();
+            tempForm.Show();
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveScoreForm tempForm = new RemoveScoreForm();
+            tempForm.Show();
+        }
+
+        private void printResultToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

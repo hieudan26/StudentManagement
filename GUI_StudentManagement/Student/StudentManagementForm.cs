@@ -154,8 +154,7 @@ namespace GUI_StudentManagement.Student
             try
             {
                 int id = int.Parse(txtId.Text);
-                SqlCommand command = new SqlCommand("SELECT id, fname, lname, bdate, gender, phone, address, picture FROM std WHERE id = " + id);
-                DataTable table = BUSstudent.getStudents(command);
+                DataTable table = BUSstudent.getStudentsId(id);
                 if (table.Rows.Count > 0)
                 {
                     this.txtFirstName.Text = table.Rows[0]["fname"].ToString();
@@ -191,17 +190,27 @@ namespace GUI_StudentManagement.Student
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM std WHERE CONCAT(fname,lname,address) LIKE '%" + txtSearch.Text + "%'";
-            Load1(query);
+            DataTable dtb = BUSstudent.SearchFull(this.txtSearch.Text);
+            Load2(dtb);
         }
        
-        private void Load1(string qr= "SELECT * FROM std")
+        private void Load2(DataTable dtb)
         {
-            SqlCommand cmd = new SqlCommand(qr);
             this.gridviewStudent.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             this.gridviewStudent.RowTemplate.Height = 80;
-            this.gridviewStudent.DataSource = BUSstudent.getStudents(cmd);
+            this.gridviewStudent.DataSource = dtb;
+            picCol = (DataGridViewImageColumn)this.gridviewStudent.Columns[7];
+            picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            this.gridviewStudent.AllowUserToAddRows = false;
+        }
+        private void Load1()
+        {
+            DataTable dtb = BUSstudent.getAllStudent();
+            this.gridviewStudent.ReadOnly = true;
+            DataGridViewImageColumn picCol = new DataGridViewImageColumn();
+            this.gridviewStudent.RowTemplate.Height = 80;
+            this.gridviewStudent.DataSource = dtb;
             picCol = (DataGridViewImageColumn)this.gridviewStudent.Columns[7];
             picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
             this.gridviewStudent.AllowUserToAddRows = false;

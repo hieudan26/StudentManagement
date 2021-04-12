@@ -24,11 +24,11 @@ namespace GUI_StudentManagement.Student
         private void ListViewStudentForm_Load(object sender, EventArgs e)
         {
             
-            SqlCommand cmd = new SqlCommand("SELECT * FROM std");
+            
             this.gridviewStudent.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             this.gridviewStudent.RowTemplate.Height = 80;
-            this.gridviewStudent.DataSource = BUSstudent.getStudents(cmd);
+            this.gridviewStudent.DataSource = BUSstudent.getAllStudent();
             picCol = (DataGridViewImageColumn)this.gridviewStudent.Columns[7];
             picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
             this.gridviewStudent.AllowUserToAddRows = false;
@@ -56,11 +56,10 @@ namespace GUI_StudentManagement.Student
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM std");
             this.gridviewStudent.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             this.gridviewStudent.RowTemplate.Height = 80;
-            this.gridviewStudent.DataSource = BUSstudent.getStudents(cmd);
+            this.gridviewStudent.DataSource = BUSstudent.getAllStudent();
             picCol = (DataGridViewImageColumn)this.gridviewStudent.Columns[7];
             picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
             this.gridviewStudent.AllowUserToAddRows = false;
