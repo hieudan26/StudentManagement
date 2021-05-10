@@ -53,6 +53,7 @@ namespace GUI_StudentManagement.Score
             this.comboCourse.Name = "comboCourse";
             this.comboCourse.Size = new System.Drawing.Size(145, 21);
             this.comboCourse.TabIndex = 29;
+            this.comboCourse.SelectedIndexChanged += new System.EventHandler(this.comboCourse_SelectedIndexChanged);
             // 
             // dataGridView1
             // 

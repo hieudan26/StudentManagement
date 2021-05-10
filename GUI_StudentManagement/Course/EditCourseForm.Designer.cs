@@ -38,13 +38,15 @@ namespace Login_form
             this.labelID = new System.Windows.Forms.Label();
             this.comboboxID = new System.Windows.Forms.ComboBox();
             this.UpdownPeriod = new System.Windows.Forms.NumericUpDown();
+            this.txtSemester = new System.Windows.Forms.TextBox();
+            this.labelSemester = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.UpdownPeriod)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(149, 176);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(340, 115);
             this.txtDescription.TabIndex = 17;
@@ -73,7 +75,7 @@ namespace Login_form
             // txtLabel
             // 
             this.txtLabel.Location = new System.Drawing.Point(149, 75);
-            this.txtLabel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLabel.Margin = new System.Windows.Forms.Padding(4);
             this.txtLabel.Name = "txtLabel";
             this.txtLabel.Size = new System.Drawing.Size(340, 22);
             this.txtLabel.TabIndex = 13;
@@ -93,7 +95,7 @@ namespace Login_form
             this.btnEdit.BackColor = System.Drawing.Color.Red;
             this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Location = new System.Drawing.Point(52, 311);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(492, 48);
             this.btnEdit.TabIndex = 10;
@@ -115,7 +117,7 @@ namespace Login_form
             // 
             this.comboboxID.FormattingEnabled = true;
             this.comboboxID.Location = new System.Drawing.Point(149, 29);
-            this.comboboxID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboboxID.Margin = new System.Windows.Forms.Padding(4);
             this.comboboxID.Name = "comboboxID";
             this.comboboxID.Size = new System.Drawing.Size(254, 24);
             this.comboboxID.TabIndex = 18;
@@ -124,7 +126,7 @@ namespace Login_form
             // UpdownPeriod
             // 
             this.UpdownPeriod.Location = new System.Drawing.Point(149, 130);
-            this.UpdownPeriod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UpdownPeriod.Margin = new System.Windows.Forms.Padding(4);
             this.UpdownPeriod.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -144,12 +146,31 @@ namespace Login_form
             0,
             0});
             // 
+            // txtSemester
+            // 
+            this.txtSemester.Location = new System.Drawing.Point(477, 29);
+            this.txtSemester.Name = "txtSemester";
+            this.txtSemester.Size = new System.Drawing.Size(92, 22);
+            this.txtSemester.TabIndex = 22;
+            // 
+            // labelSemester
+            // 
+            this.labelSemester.AutoSize = true;
+            this.labelSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSemester.Location = new System.Drawing.Point(404, 11);
+            this.labelSemester.Name = "labelSemester";
+            this.labelSemester.Size = new System.Drawing.Size(74, 16);
+            this.labelSemester.TabIndex = 21;
+            this.labelSemester.Text = "Semester";
+            // 
             // EditCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(592, 374);
+            this.Controls.Add(this.txtSemester);
+            this.Controls.Add(this.labelSemester);
             this.Controls.Add(this.UpdownPeriod);
             this.Controls.Add(this.comboboxID);
             this.Controls.Add(this.txtDescription);
@@ -161,7 +182,7 @@ namespace Login_form
             this.Controls.Add(this.labelID);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditCourseForm";
             this.Text = "EditCourseForm";
             this.Load += new System.EventHandler(this.EditCourseForm_Load);
@@ -182,5 +203,7 @@ namespace Login_form
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.ComboBox comboboxID;
         private System.Windows.Forms.NumericUpDown UpdownPeriod;
+        private System.Windows.Forms.TextBox txtSemester;
+        private System.Windows.Forms.Label labelSemester;
     }
 }

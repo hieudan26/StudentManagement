@@ -65,7 +65,7 @@ namespace GUI_StudentManagement
             this.LoginButton.AutoEllipsis = true;
             this.LoginButton.BackColor = System.Drawing.Color.LightSeaGreen;
             this.LoginButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LoginButton.Location = new System.Drawing.Point(152, 207);
+            this.LoginButton.Location = new System.Drawing.Point(147, 268);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(100, 37);
             this.LoginButton.TabIndex = 15;
@@ -105,6 +105,7 @@ namespace GUI_StudentManagement
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login_Child";
             this.Text = "Login_Child";
+            this.Load += new System.EventHandler(this.Login_Child_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

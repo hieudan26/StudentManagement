@@ -51,6 +51,7 @@ namespace GUI_StudentManagement.Student
             this.groupAdd = new System.Windows.Forms.GroupBox();
             this.pictureStudent = new System.Windows.Forms.PictureBox();
             this.GenderLabel = new System.Windows.Forms.Label();
+            this.btnAddCourse = new System.Windows.Forms.Button();
             StudentIdLabel = new System.Windows.Forms.Label();
             this.groupAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
@@ -258,6 +259,7 @@ namespace GUI_StudentManagement.Student
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupAdd.BackColor = System.Drawing.Color.MintCream;
+            this.groupAdd.Controls.Add(this.btnAddCourse);
             this.groupAdd.Controls.Add(StudentIdLabel);
             this.groupAdd.Controls.Add(this.AddFileBtn);
             this.groupAdd.Controls.Add(this.txtStudentId);
@@ -310,6 +312,19 @@ namespace GUI_StudentManagement.Student
             this.GenderLabel.TabIndex = 32;
             this.GenderLabel.Text = "Gender";
             // 
+            // btnAddCourse
+            // 
+            this.btnAddCourse.BackColor = System.Drawing.Color.Gray;
+            this.btnAddCourse.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAddCourse.Location = new System.Drawing.Point(736, 444);
+            this.btnAddCourse.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAddCourse.Name = "btnAddCourse";
+            this.btnAddCourse.Size = new System.Drawing.Size(129, 47);
+            this.btnAddCourse.TabIndex = 44;
+            this.btnAddCourse.Text = "Add Course";
+            this.btnAddCourse.UseVisualStyleBackColor = false;
+            this.btnAddCourse.Click += new System.EventHandler(this.btnAddCourse_Click);
+            // 
             // AddStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -351,5 +366,6 @@ namespace GUI_StudentManagement.Student
         private System.Windows.Forms.TextBox txtStudentId;
         private System.Windows.Forms.GroupBox groupAdd;
         private System.Windows.Forms.Label GenderLabel;
+        private System.Windows.Forms.Button btnAddCourse;
     }
 }

@@ -43,6 +43,7 @@ namespace GUI_StudentManagement.Course
             txtLabel.Text = dr.ItemArray[1].ToString();
             UpdownPeriod.Value = int.Parse(dr.ItemArray[2].ToString());
             txtDescription.Text = dr.ItemArray[3].ToString();
+            txtSemester.Text = dr.ItemArray[4].ToString();
         }
 
         private void listBox1_Click(object sender, EventArgs e)
@@ -65,7 +66,8 @@ namespace GUI_StudentManagement.Course
                 string Label = this.txtLabel.Text;
                 int period = int.Parse(this.UpdownPeriod.Value.ToString());
                 string desciption = this.txtDescription.Text;
-                DTO_Course Course = new DTO_Course(Label, period, desciption);
+                int semester = int.Parse(this.txtSemester.Text);
+                DTO_Course Course = new DTO_Course(Label, period, desciption, semester);
                 DataTable tb = BUScourse.getCOURSEId(Id);
                 DataTable tb2 = BUScourse.getCOURSELabel(Label);
                 if (tb.Rows.Count > 0)
@@ -105,6 +107,7 @@ namespace GUI_StudentManagement.Course
                         txtID.Text = "";
                         txtDescription.Text = "";
                         txtLabel.Text = "";
+                        txtSemester.Text = "";
                         this.reloadListData();
                     }
                     else
@@ -124,7 +127,7 @@ namespace GUI_StudentManagement.Course
             string label = txtLabel.Text;
             int period = int.Parse(UpdownPeriod.Value.ToString());
             string descrip = txtDescription.Text;
-
+            int semester = int.Parse(this.txtSemester.Text);
             if (label == "")
             {
                 MessageBox.Show("Invalid Label!!", "Invalid Label", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -133,7 +136,7 @@ namespace GUI_StudentManagement.Course
             {
                 try
                 {
-                    DTO_Course course = new DTO_Course(label, period, descrip);
+                    DTO_Course course = new DTO_Course(label, period, descrip,semester);
                     int id = Convert.ToInt32(txtID.Text);
                     if (BUScourse.updateCOURSE(course, id) == true && course.verif() == true)
                     {

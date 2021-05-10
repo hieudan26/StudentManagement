@@ -13,15 +13,18 @@ namespace DTO_StudentManagement
         private string slabel;
         private int iperiod;
         private string sdescription;
+        private int iSemester;
         public string label { get => slabel; set => slabel = value; }
         public int period { get => iperiod; set => iperiod = value; }
         public string description { get => sdescription; set => sdescription = value; }
+        public int Semester { get => iSemester; set => iSemester = value; }
 
-        public DTO_Course(string label, int period, string description)
+        public DTO_Course(string label, int period, string description,int semester)
         {
             this.slabel = label;
             this.iperiod = period;
             this.sdescription = description;
+            this.iSemester = semester;
         }
         public bool verif()
         {
@@ -31,6 +34,11 @@ namespace DTO_StudentManagement
                 return false;
             }
             if (this.period < 10)
+            {
+                MessageBox.Show("Period is too short", "Add COURSE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (this.Semester < 0 ||Semester > 3)
             {
                 MessageBox.Show("Period is too short", "Add COURSE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

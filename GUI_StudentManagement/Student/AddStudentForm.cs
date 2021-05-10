@@ -68,5 +68,17 @@ namespace GUI_StudentManagement.Student
         {
             Close();
         }
+
+        private void btnAddCourse_Click(object sender, EventArgs e)
+        {
+            if (this.txtStudentId.Text != "")
+            {
+                AddCOurseSTudent form = new AddCOurseSTudent();
+                form.txtStudentId.Text = this.txtStudentId.Text;
+                this.Hide();
+                form.ShowDialog();
+                this.Show();
+            }
+        }
     }
 }

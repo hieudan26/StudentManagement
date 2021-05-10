@@ -1,4 +1,5 @@
-﻿using GUI_StudentManagement.Score;
+﻿using GUI_StudentManagement.Course;
+using GUI_StudentManagement.Score;
 using Login_form;
 using System;
 using System.Collections.Generic;
@@ -79,7 +80,7 @@ namespace GUI_StudentManagement.Student
 
         private void manageCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CourseManagamentForm tempForm = new CourseManagamentForm();
+            ManageCourseForm tempForm = new ManageCourseForm();
             tempForm.Show();
         }
 
@@ -110,6 +111,42 @@ namespace GUI_StudentManagement.Student
         private void printResultToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void staticResultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StaticScoreForm tempForm = new StaticScoreForm();
+            tempForm.Show();
+        }
+
+        private void aVGResultByScoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ResultForm tempForm = new ResultForm();
+            tempForm.Show();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            AddScoreForm tempForm = new AddScoreForm();
+            tempForm.Show();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            AVGCourseForm tempForm = new AVGCourseForm();
+            tempForm.Show();
+        }
+
+        private void toolStripManageScore_Click(object sender, EventArgs e)
+        {
+            ManageScore tempForm = new ManageScore();
+            tempForm.Show();
+        }
+
+        private void toolStripRemoveScore_Click(object sender, EventArgs e)
+        {
+            RemoveScoreForm tempForm = new RemoveScoreForm();
+            tempForm.Show();
         }
     }
 }

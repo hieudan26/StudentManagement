@@ -50,6 +50,16 @@ namespace DAL_StudentManagement
             adapter.Fill(table);
             return table;
         }
+        public DataTable getSCOREAStudent(int idStudent, string idCourse)
+        {
+            SqlCommand command = new SqlCommand("SELECT * FROM Score WHERE student_id = @student_id AND course_id = @course_id", this.getConnection);
+            command.Parameters.Add("@student_id", SqlDbType.Int).Value = idStudent;
+            command.Parameters.Add("@course_id", SqlDbType.Int).Value = idCourse;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
         public DataTable getSCOREbyIDStudent(int idStudent)
         {
             SqlCommand command = new SqlCommand("SELECT * FROM Score WHERE student_id = @student_id", this.getConnection);
@@ -110,6 +120,32 @@ namespace DAL_StudentManagement
             SqlCommand command = new SqlCommand("SELECT COURSE.label, AVG(Score.student_score) as avgScore FROM Score inner join COURSE on Score.course_id = COURSE.Id " +
                 "GROUP BY COURSE.label", this.getConnection);
             
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+        public DataTable getSCOREAVGStudent()
+        {
+            SqlCommand command = new SqlCommand("Select std.id,fname,lname, avg(student_score) as avg from std, score where score.student_id = std.Id Group by std.id,fname,lname", this.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+        public DataTable getSearchFull (string s)
+        {
+            SqlCommand command = new SqlCommand("Select std.id,fname,lname, avg(student_score) as avg from std, score where score.student_id = std.Id Group by std.id,fname,lname", this.getConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
+        public DataTable SearchFull(string text)
+        {
+            SqlCommand command = new SqlCommand("Select std.id,fname,lname, avg(student_score) as avg from std, score where score.student_id = std.Id and  CONCAT(fname,lname) LIKE '%" + text + "%' Group by std.id,fname,lname");
+            command.Connection = this.getConnection;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);

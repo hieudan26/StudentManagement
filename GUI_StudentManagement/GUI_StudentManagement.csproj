@@ -68,6 +68,12 @@
     <Compile Include="Course\EditCourseForm.designer.cs">
       <DependentUpon>EditCourseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Course\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Course\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Course\ManageCourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,24 @@
     <Compile Include="Score\RemoveScoreForm.Designer.cs">
       <DependentUpon>RemoveScoreForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Score\ResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Score\ResultForm.Designer.cs">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Score\StaticScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Score\StaticScoreForm.Designer.cs">
+      <DependentUpon>StaticScoreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\AddCOurseSTudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\AddCOurseSTudent.Designer.cs">
+      <DependentUpon>AddCOurseSTudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student\AddStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,17 +170,29 @@
     <Compile Include="Student\UpdateStudentForm.Designer.cs">
       <DependentUpon>UpdateStudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="User\AddContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\AddContactForm.Designer.cs">
+      <DependentUpon>AddContactForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\ContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\ContactForm.Designer.cs">
+      <DependentUpon>ContactForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\EditContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\EditContactForm.Designer.cs">
+      <DependentUpon>EditContactForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="User\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="User\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="User\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="User\Login_Child.cs">
       <SubType>Form</SubType>
@@ -166,11 +202,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\Register_Child.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="User\Register_Child.Designer.cs">
       <DependentUpon>Register_Child.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\SelectContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\SelectContactForm.Designer.cs">
+      <DependentUpon>SelectContactForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\ShowFullListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\ShowFullListForm.Designer.cs">
+      <DependentUpon>ShowFullListForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Course\AddCourseForm.resx">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
@@ -202,6 +256,15 @@
     <EmbeddedResource Include="Score\RemoveScoreForm.resx">
       <DependentUpon>RemoveScoreForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Score\ResultForm.resx">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Score\StaticScoreForm.resx">
+      <DependentUpon>StaticScoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\AddCOurseSTudent.resx">
+      <DependentUpon>AddCOurseSTudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Student\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,11 +283,17 @@
     <EmbeddedResource Include="Student\UpdateStudentForm.resx">
       <DependentUpon>UpdateStudentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User\AddContactForm.resx">
+      <DependentUpon>AddContactForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\ContactForm.resx">
+      <DependentUpon>ContactForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\EditContactForm.resx">
+      <DependentUpon>EditContactForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\Login_Child.resx">
       <DependentUpon>Login_Child.cs</DependentUpon>
@@ -239,8 +308,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="User\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User\Register_Child.resx">
       <DependentUpon>Register_Child.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\SelectContactForm.resx">
+      <DependentUpon>SelectContactForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\ShowFullListForm.resx">
+      <DependentUpon>ShowFullListForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

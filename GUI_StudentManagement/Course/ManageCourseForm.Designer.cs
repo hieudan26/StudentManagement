@@ -46,6 +46,8 @@ namespace GUI_StudentManagement.Course
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.labelTotal = new System.Windows.Forms.Label();
             this.UpdownPeriod = new System.Windows.Forms.NumericUpDown();
+            this.txtSemester = new System.Windows.Forms.TextBox();
+            this.labelSemester = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.UpdownPeriod)).BeginInit();
             this.SuspendLayout();
             // 
@@ -242,11 +244,30 @@ namespace GUI_StudentManagement.Course
             0,
             0});
             // 
+            // txtSemester
+            // 
+            this.txtSemester.Location = new System.Drawing.Point(339, 72);
+            this.txtSemester.Name = "txtSemester";
+            this.txtSemester.Size = new System.Drawing.Size(92, 20);
+            this.txtSemester.TabIndex = 28;
+            // 
+            // labelSemester
+            // 
+            this.labelSemester.AutoSize = true;
+            this.labelSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSemester.Location = new System.Drawing.Point(266, 54);
+            this.labelSemester.Name = "labelSemester";
+            this.labelSemester.Size = new System.Drawing.Size(74, 16);
+            this.labelSemester.TabIndex = 27;
+            this.labelSemester.Text = "Semester";
+            // 
             // ManageCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtSemester);
+            this.Controls.Add(this.labelSemester);
             this.Controls.Add(this.UpdownPeriod);
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.listBox1);
@@ -292,5 +313,7 @@ namespace GUI_StudentManagement.Course
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.NumericUpDown UpdownPeriod;
+        private System.Windows.Forms.TextBox txtSemester;
+        private System.Windows.Forms.Label labelSemester;
     }
 }

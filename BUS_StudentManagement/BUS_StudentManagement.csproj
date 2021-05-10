@@ -43,9 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS_Account.cs" />
+    <Compile Include="BUS_Contact.cs" />
     <Compile Include="BUS_Course.cs" />
+    <Compile Include="BUS_Group.cs" />
     <Compile Include="BUS_Score.cs" />
     <Compile Include="BUS_Student.cs" />
+    <Compile Include="BUS_User.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>

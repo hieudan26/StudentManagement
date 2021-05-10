@@ -10,13 +10,14 @@ using System.Windows.Forms;
 using DTO_StudentManagement;
 using BUS_StudentManagement;
 using GUI_StudentManagement.Student;
+using GUI_StudentManagement.User;
 
 namespace GUI_StudentManagement
 {
     public partial class Login_Child : Form
     {
         BUS_Account BUSacc = new BUS_Account();
-       
+        BUS_User BUSUser = new BUS_User();
         public Login_Child()
         {
             InitializeComponent();
@@ -35,7 +36,9 @@ namespace GUI_StudentManagement
                 if (this.BUSacc.loginAccount(DTOacc))
                 {
                     DialogResult dialogResult = MessageBox.Show("Login Successfully");
-                    MenuStudent menu1 = new MenuStudent();
+                    DTO_Global.SetGlabelUserId(BUSUser.getIdByUserName(this.txtUsername.Text));
+                    //MenuStudent menu1 = new MenuStudent();
+                    AddContactForm menu1= new AddContactForm();
                     menu1.Show();
                     
                 }
@@ -44,6 +47,11 @@ namespace GUI_StudentManagement
                     MessageBox.Show("Invalid Username or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void Login_Child_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

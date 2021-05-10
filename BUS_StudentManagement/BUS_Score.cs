@@ -45,5 +45,16 @@ namespace BUS_StudentManagement
         {
             return scoreDAL.getAVGCourse();
         }
+        public DataTable getSCOREAVGStudent()
+        {
+            
+            return scoreDAL.getSCOREAVGStudent();
+        }
+        public DataTable SearchFull(string text)
+        {
+            
+
+            return scoreDAL.SearchFull(text);
+        }
     }
 }

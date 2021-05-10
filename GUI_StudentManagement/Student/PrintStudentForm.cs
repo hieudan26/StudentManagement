@@ -31,7 +31,7 @@ namespace GUI_StudentManagement.Student
             this.gridviewStudent.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             this.gridviewStudent.RowTemplate.Height = 80;
-            this.gridviewStudent.DataSource = BUSstudent.FilterStudent(this.YesBtn.Checked, this.MaleBtn.Checked, this.dateBeforeDate.Value, this.dateAfterDay.Value);
+            this.gridviewStudent.DataSource = BUSstudent.FilterStudent(this.YesBtn.Checked, this.MaleBtn.Checked,this.FemaleBtn.Checked ,this.dateBeforeDate.Value, this.dateAfterDay.Value);
             picCol = (DataGridViewImageColumn)this.gridviewStudent.Columns[7];
             picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
             this.gridviewStudent.AllowUserToAddRows = false;
@@ -184,13 +184,17 @@ namespace GUI_StudentManagement.Student
                 oDoc.Application.Selection.Tables[1].Rows[1].Range.Bold = 1;
                 oDoc.Application.Selection.Tables[1].Rows[1].Range.Font.Name = "Tahoma";
                 oDoc.Application.Selection.Tables[1].Rows[1].Range.Font.Size = 14;
-
+                
                 //add header row manually
-                for (int c = 0; c <= ColumnCount - 1; c++)
-                {
-                    oDoc.Application.Selection.Tables[1].Cell(1, c + 1).Range.Text = DGV.Columns[c].HeaderText;
-                }
-                oDoc.Application.Selection.Tables[1].Cell(1, 9).Range.Text = "pic2";
+
+                oDoc.Application.Selection.Tables[1].Cell(1, 1).Range.Text = "ID student";
+                oDoc.Application.Selection.Tables[1].Cell(1, 2).Range.Text = "First Name";
+                oDoc.Application.Selection.Tables[1].Cell(1, 3).Range.Text = "Last Name";
+                oDoc.Application.Selection.Tables[1].Cell(1, 4).Range.Text = "Birth Date";
+                oDoc.Application.Selection.Tables[1].Cell(1, 5).Range.Text = "Gender";
+                oDoc.Application.Selection.Tables[1].Cell(1, 6).Range.Text = "Phone";
+                oDoc.Application.Selection.Tables[1].Cell(1, 7).Range.Text = "Address";
+                oDoc.Application.Selection.Tables[1].Cell(1, 8).Range.Text = "Picture";
                 //table style
                 oDoc.Application.Selection.Tables[1].set_Style("Grid Table 4 - Accent 5");
                 oDoc.Application.Selection.Tables[1].Rows[1].Select();

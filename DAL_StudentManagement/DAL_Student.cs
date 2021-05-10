@@ -188,51 +188,51 @@ namespace DAL_StudentManagement
                 return 0;
             }
         }
-        public DataTable FilterStudent(bool YesBtn, bool MaleBtn, DateTime dateBeforeDate, DateTime dateAfterDay)
+        public DataTable FilterStudent(bool YesBtn,  bool MaleBtn, bool FeMaleBtn, DateTime dateBeforeDate, DateTime dateAfterDay)
         {
-            SqlCommand cmd;
-            if (YesBtn == false)
+            SqlCommand command = new SqlCommand("SELECT * FROM std");
+            if (YesBtn == false && MaleBtn == false && FeMaleBtn == false)
             {
-                cmd = new SqlCommand("SELECT * FROM std");
+                command = new SqlCommand("SELECT * FROM std");
             }
-            else
+            else if(YesBtn == true && MaleBtn == false && FeMaleBtn == false)
             {
-                cmd = new SqlCommand("SELECT * FROM std WHERE bdate BETWEEN @bf_Date  AND @at_Date");
-                cmd.Parameters.Add("@bf_Date", SqlDbType.Date).Value = dateBeforeDate;
-                cmd.Parameters.Add("@at_Date", SqlDbType.Date).Value = dateAfterDay;
+                command = new SqlCommand("SELECT * FROM std WHERE bdate BETWEEN @bf_Date  AND @at_Date");
+                command.Parameters.Add("@bf_Date", SqlDbType.Date).Value = dateBeforeDate;
+                command.Parameters.Add("@at_Date", SqlDbType.Date).Value = dateAfterDay;
             }
-            if (MaleBtn == true)
+            else if (MaleBtn == true)
             {
                 if (YesBtn == false)
                 {
-                    cmd = new SqlCommand("SELECT * FROM std WHERE gender = @gender");
-                    cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = "Male";
+                    command = new SqlCommand("SELECT * FROM std WHERE gender = @gender");
+                    command.Parameters.Add("@gender", SqlDbType.NVarChar).Value = "Male";
                 }
                 else
                 {
-                    cmd = new SqlCommand("SELECT * FROM std WHERE gender = @gender AND bdate BETWEEN @bf_Date  AND @at_Date");
-                    cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = "Male";
-                    cmd.Parameters.Add("@bf_Date", SqlDbType.Date).Value = dateBeforeDate;
-                    cmd.Parameters.Add("@at_Date", SqlDbType.Date).Value = dateAfterDay;
+                    command = new SqlCommand("SELECT * FROM std WHERE gender = @gender AND bdate BETWEEN @bf_Date  AND @at_Date");
+                    command.Parameters.Add("@gender", SqlDbType.NVarChar).Value = "Male";
+                    command.Parameters.Add("@bf_Date", SqlDbType.Date).Value = dateBeforeDate;
+                    command.Parameters.Add("@at_Date", SqlDbType.Date).Value = dateAfterDay;
                 }
 
             }
-            else if (MaleBtn == false)
+            else
             {
                 if (YesBtn == false)
                 {
-                    cmd = new SqlCommand("SELECT * FROM std WHERE gender = @gender");
-                    cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = "Female";
+                    command = new SqlCommand("SELECT * FROM std WHERE gender = @gender");
+                    command.Parameters.Add("@gender", SqlDbType.NVarChar).Value = "Female";
                 }
                 else
                 {
-                    cmd = new SqlCommand("SELECT * FROM std WHERE gender = @gender AND bdate BETWEEN @bf_Date  AND @at_Date");
-                    cmd.Parameters.Add("@gender", SqlDbType.NVarChar).Value = "Female";
-                    cmd.Parameters.Add("@bf_Date", SqlDbType.Date).Value = dateBeforeDate;
-                    cmd.Parameters.Add("@at_Date", SqlDbType.Date).Value = dateAfterDay;
+                    command = new SqlCommand("SELECT * FROM std WHERE gender = @gender AND bdate BETWEEN @bf_Date  AND @at_Date");
+                    command.Parameters.Add("@gender", SqlDbType.NVarChar).Value = "Female";
+                    command.Parameters.Add("@bf_Date", SqlDbType.Date).Value = dateBeforeDate;
+                    command.Parameters.Add("@at_Date", SqlDbType.Date).Value = dateAfterDay;
                 }
             }
-            return this.getStudents(cmd);
+            return this.getStudents(command);
         }
         public DataTable getAllIfnoStudent()
         {

@@ -103,5 +103,10 @@ namespace GUI_StudentManagement.Score
         {
             dataGridView1.DataSource = BUSScore.getSCORE();
         }
+
+        private void comboCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -33,7 +33,8 @@ namespace Login_form
                 string Label = this.txtLabel.Text;
                 int period = int.Parse(this.txtPeriod.Text);
                 string desciption = this.txtDescription.Text;
-                DTO_Course Course = new DTO_Course(Label,period, desciption);
+                int semester = int.Parse(this.txtSemester.Text);
+                DTO_Course Course = new DTO_Course(Label,period, desciption,semester);
                 DataTable tb = BUScourse.getCOURSEId(Id);
                 DataTable tb2 = BUScourse.getCOURSELabel(Label);
                 if (tb.Rows.Count > 0)

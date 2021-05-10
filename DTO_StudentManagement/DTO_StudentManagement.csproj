@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DTO_Account.cs" />
     <Compile Include="DTO_Course.cs" />
+    <Compile Include="DTO_Global.cs" />
     <Compile Include="DTO_Score.cs" />
     <Compile Include="DTO_Student.cs" />
     <Compile Include="UserControl1.cs">

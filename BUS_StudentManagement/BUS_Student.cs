@@ -64,9 +64,9 @@ namespace BUS_StudentManagement
             return DALstudent.totalFemaleStudent();
         }
 
-        public DataTable FilterStudent(bool YesBtn, bool MaleBtn, DateTime dateBeforeDate, DateTime dateAfterDay)
+        public DataTable FilterStudent(bool YesBtn, bool MaleBtn, bool FeMaleBtn, DateTime dateBeforeDate, DateTime dateAfterDay)
         {
-            return DALstudent.FilterStudent(YesBtn, MaleBtn, dateBeforeDate, dateAfterDay);
+            return DALstudent.FilterStudent(YesBtn, MaleBtn,FeMaleBtn, dateBeforeDate, dateAfterDay);
         }
         public DataTable getAllIfnoStudent()
         {

@@ -38,6 +38,8 @@ namespace Login_form
             this.labelDescription = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.txtPeriod = new System.Windows.Forms.TextBox();
+            this.txtSemester = new System.Windows.Forms.TextBox();
+            this.labelSemester = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelID
@@ -120,12 +122,31 @@ namespace Login_form
             this.txtPeriod.Size = new System.Drawing.Size(113, 20);
             this.txtPeriod.TabIndex = 9;
             // 
+            // txtSemester
+            // 
+            this.txtSemester.Location = new System.Drawing.Point(360, 27);
+            this.txtSemester.Name = "txtSemester";
+            this.txtSemester.Size = new System.Drawing.Size(92, 20);
+            this.txtSemester.TabIndex = 11;
+            // 
+            // labelSemester
+            // 
+            this.labelSemester.AutoSize = true;
+            this.labelSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSemester.Location = new System.Drawing.Point(287, 9);
+            this.labelSemester.Name = "labelSemester";
+            this.labelSemester.Size = new System.Drawing.Size(74, 16);
+            this.labelSemester.TabIndex = 10;
+            this.labelSemester.Text = "Semester";
+            // 
             // AddCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(464, 332);
+            this.Controls.Add(this.txtSemester);
+            this.Controls.Add(this.labelSemester);
             this.Controls.Add(this.txtPeriod);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.labelDescription);
@@ -153,5 +174,7 @@ namespace Login_form
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.RichTextBox txtDescription;
         private System.Windows.Forms.TextBox txtPeriod;
+        private System.Windows.Forms.TextBox txtSemester;
+        private System.Windows.Forms.Label labelSemester;
     }
 }

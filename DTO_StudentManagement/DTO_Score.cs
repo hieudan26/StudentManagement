@@ -23,10 +23,18 @@ namespace DTO_StudentManagement
             this.iScore = iScore;
             this.sdesciption = desciption;
         }
-
+        
         public int idCourse { get => iidCourse; set => iidCourse = value; }
         public int idStudent { get => iidStudent; set => iidStudent = value; }
         public float Score { get => iScore; set => iScore = value; }
         public string desciption { get => sdesciption; set => sdesciption = value; }
+
+
+        public bool verif()
+        {
+            if (this.idCourse.ToString() == "" || this.idStudent.ToString() == "" || iScore < 0 || iScore > 10)
+                return false;
+            return true;
+        }
     }
 }

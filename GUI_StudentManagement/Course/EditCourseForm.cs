@@ -41,6 +41,7 @@ namespace Login_form
                 txtLabel.Text = tb.Rows[0][1].ToString();
                 UpdownPeriod.Value = int.Parse(tb.Rows[0][2].ToString());
                 txtDescription.Text = tb.Rows[0][3].ToString();
+                txtSemester.Text = tb.Rows[0][4].ToString();
             }
             catch (Exception ex)
             {
@@ -54,7 +55,7 @@ namespace Login_form
             string label = txtLabel.Text;
             int period= int.Parse(UpdownPeriod.Value.ToString());
             string descrip = txtDescription.Text;
-           
+            int semester = int.Parse(txtSemester.Text);
             if (label == "")
             {
                 MessageBox.Show("Invalid Label!!", "Invalid Label", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -63,7 +64,7 @@ namespace Login_form
             {
                 try
                 {
-                    DTO_Course course = new DTO_Course(label, period, descrip);
+                    DTO_Course course = new DTO_Course(label, period, descrip,semester);
                     int id = Convert.ToInt32(comboboxID.SelectedValue);
                     if (BUSCourse.updateCOURSE(course,id) == true && course.verif() == true )
                     {

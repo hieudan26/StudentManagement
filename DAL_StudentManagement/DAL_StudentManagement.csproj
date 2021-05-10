@@ -43,9 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL_Account.cs" />
+    <Compile Include="DAL_Contact.cs" />
     <Compile Include="DAL_Course.cs" />
+    <Compile Include="DAL_Group.cs" />
     <Compile Include="DAL_Score.cs" />
     <Compile Include="DAL_Student.cs" />
+    <Compile Include="DAL_User.cs" />
     <Compile Include="myDB.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>
