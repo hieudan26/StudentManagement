@@ -119,6 +119,7 @@ namespace GUI_StudentManagement.User
             this.comboBoxGroup.Name = "comboBoxGroup";
             this.comboBoxGroup.Size = new System.Drawing.Size(216, 21);
             this.comboBoxGroup.TabIndex = 82;
+            this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
             // 
             // textboxGroup
             // 

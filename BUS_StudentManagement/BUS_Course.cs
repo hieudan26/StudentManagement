@@ -51,10 +51,14 @@ namespace BUS_StudentManagement
 
             return DALcourse.getCOURSEEmpty(semester);
         }
-        public DataTable gettableCOURSEsemester(int semeter)
+        public DataTable gettableCOURSEsemester(int semester)
         {
 
-            return DALcourse.gettableCOURSEsemester(semeter);
+            return DALcourse.gettableCOURSEsemester(semester);
+        }
+        public DataTable getCOURSEEmptyGroup(int semester, int id_group)
+        {
+                return DALcourse.getCOURSEEmptyGroup(semester, id_group);
         }
     }
 }

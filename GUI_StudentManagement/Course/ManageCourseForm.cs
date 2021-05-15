@@ -27,6 +27,11 @@ namespace GUI_StudentManagement.Course
         private void ManageCourseForm_Load(object sender, EventArgs e)
         {
             this.reloadListData();
+            BUS_Group BUSGroup = new BUS_Group();
+            this.comboBoxGroup.DataSource = BUSGroup.getGroups(DTO_Global.GlobalUserId);
+            this.comboBoxGroup.DisplayMember = "name";
+            this.comboBoxGroup.ValueMember = "Id";
+            
         }
         private void reloadListData()
         {
@@ -35,6 +40,7 @@ namespace GUI_StudentManagement.Course
             listBox1.DisplayMember = "label";
             listBox1.SelectedItem = null;
             labelTotal.Text = "Total Course: " + BUScourse.getCOURSE().Rows.Count.ToString();
+            this.comboBoxGroup.SelectedItem = null;
         }
         private void showData(int index)
         {
@@ -47,6 +53,7 @@ namespace GUI_StudentManagement.Course
                 UpdownPeriod.Value = int.Parse(dr.ItemArray[2].ToString());
                 txtDescription.Text = dr.ItemArray[3].ToString();
                 txtSemester.Text = dr.ItemArray[4].ToString();
+                this.comboBoxGroup.SelectedValue = int.Parse(dr.ItemArray[5].ToString());
             }
             catch(Exception ex)
             {
@@ -117,7 +124,8 @@ namespace GUI_StudentManagement.Course
                     try
                     {
                         int id = Convert.ToInt32(txtID.Text);
-                        DTO_Course course = new DTO_Course(id,label, period, descrip, semester);
+                        int groupid = (int)comboBoxGroup.SelectedValue;
+                        DTO_Course course = new DTO_Course(id,label, period, descrip, semester, groupid);
                         if (BUScourse.updateCOURSE(course) == true && course.verif() == true)
                         {
                             MessageBox.Show("course informationg Updated", "edit course", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -40,6 +40,8 @@ namespace Login_form
             this.txtPeriod = new System.Windows.Forms.TextBox();
             this.txtSemester = new System.Windows.Forms.TextBox();
             this.labelSemester = new System.Windows.Forms.Label();
+            this.labelGroup = new System.Windows.Forms.Label();
+            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labelID
@@ -55,7 +57,7 @@ namespace Login_form
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.Red;
-            this.btnAdd.Location = new System.Drawing.Point(71, 267);
+            this.btnAdd.Location = new System.Drawing.Point(71, 329);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(328, 39);
             this.btnAdd.TabIndex = 1;
@@ -91,17 +93,18 @@ namespace Login_form
             // 
             this.labelPeriod.AutoSize = true;
             this.labelPeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPeriod.Location = new System.Drawing.Point(84, 95);
+            this.labelPeriod.Location = new System.Drawing.Point(84, 157);
             this.labelPeriod.Name = "labelPeriod";
             this.labelPeriod.Size = new System.Drawing.Size(54, 16);
             this.labelPeriod.TabIndex = 5;
             this.labelPeriod.Text = "Period";
+            this.labelPeriod.Click += new System.EventHandler(this.labelPeriod_Click);
             // 
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
             this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescription.Location = new System.Drawing.Point(78, 144);
+            this.labelDescription.Location = new System.Drawing.Point(68, 210);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(87, 16);
             this.labelDescription.TabIndex = 7;
@@ -109,7 +112,7 @@ namespace Login_form
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(141, 167);
+            this.txtDescription.Location = new System.Drawing.Point(133, 229);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(228, 94);
             this.txtDescription.TabIndex = 8;
@@ -117,7 +120,7 @@ namespace Login_form
             // 
             // txtPeriod
             // 
-            this.txtPeriod.Location = new System.Drawing.Point(141, 121);
+            this.txtPeriod.Location = new System.Drawing.Point(141, 187);
             this.txtPeriod.Name = "txtPeriod";
             this.txtPeriod.Size = new System.Drawing.Size(113, 20);
             this.txtPeriod.TabIndex = 9;
@@ -139,12 +142,33 @@ namespace Login_form
             this.labelSemester.TabIndex = 10;
             this.labelSemester.Text = "Semester";
             // 
+            // labelGroup
+            // 
+            this.labelGroup.AutoSize = true;
+            this.labelGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGroup.Location = new System.Drawing.Point(84, 102);
+            this.labelGroup.Name = "labelGroup";
+            this.labelGroup.Size = new System.Drawing.Size(50, 16);
+            this.labelGroup.TabIndex = 12;
+            this.labelGroup.Text = "Group";
+            // 
+            // comboBoxGroup
+            // 
+            this.comboBoxGroup.FormattingEnabled = true;
+            this.comboBoxGroup.Location = new System.Drawing.Point(141, 124);
+            this.comboBoxGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxGroup.Name = "comboBoxGroup";
+            this.comboBoxGroup.Size = new System.Drawing.Size(216, 21);
+            this.comboBoxGroup.TabIndex = 83;
+            // 
             // AddCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(464, 332);
+            this.ClientSize = new System.Drawing.Size(464, 382);
+            this.Controls.Add(this.comboBoxGroup);
+            this.Controls.Add(this.labelGroup);
             this.Controls.Add(this.txtSemester);
             this.Controls.Add(this.labelSemester);
             this.Controls.Add(this.txtPeriod);
@@ -158,6 +182,7 @@ namespace Login_form
             this.Controls.Add(this.labelID);
             this.Name = "AddCourseForm";
             this.Text = "AddCourseForm";
+            this.Load += new System.EventHandler(this.AddCourseForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,5 +201,7 @@ namespace Login_form
         private System.Windows.Forms.TextBox txtPeriod;
         private System.Windows.Forms.TextBox txtSemester;
         private System.Windows.Forms.Label labelSemester;
+        private System.Windows.Forms.Label labelGroup;
+        private System.Windows.Forms.ComboBox comboBoxGroup;
     }
 }

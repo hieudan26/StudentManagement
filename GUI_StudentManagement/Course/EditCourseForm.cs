@@ -24,6 +24,7 @@ namespace Login_form
         private void EditCourseForm_Load(object sender, EventArgs e)
         {
             this.fillCombo();
+
         }
         private void fillCombo()
         {
@@ -31,6 +32,10 @@ namespace Login_form
             comboboxID.DisplayMember = "id";
             comboboxID.ValueMember = "id";
             comboboxID.DataSource = tb;
+            BUS_Group BUSGroup = new BUS_Group();
+            this.comboBoxGroup.DataSource = BUSGroup.getGroups(DTO_Global.GlobalUserId);
+            this.comboBoxGroup.DisplayMember = "name";
+            this.comboBoxGroup.ValueMember = "Id";
         }
 
         private void comboboxID_SelectedIndexChanged(object sender, EventArgs e)
@@ -42,6 +47,7 @@ namespace Login_form
                 UpdownPeriod.Value = int.Parse(tb.Rows[0][2].ToString());
                 txtDescription.Text = tb.Rows[0][3].ToString();
                 txtSemester.Text = tb.Rows[0][4].ToString();
+                comboBoxGroup.SelectedValue = int.Parse(tb.Rows[0][5].ToString());
             }
             catch (Exception ex)
             {
@@ -53,20 +59,21 @@ namespace Login_form
         private void btnEdit_Click(object sender, EventArgs e)
         {
             string label = txtLabel.Text;
-            int period= int.Parse(UpdownPeriod.Value.ToString());
+            int period = int.Parse(UpdownPeriod.Value.ToString());
             string descrip = txtDescription.Text;
             int semester = int.Parse(txtSemester.Text);
             if (label == "")
             {
                 MessageBox.Show("Invalid Label!!", "Invalid Label", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (period > 10)
+            else if (period >= 10)
             {
                 try
                 {
                    
                     int id = Convert.ToInt32(comboboxID.SelectedValue);
-                    DTO_Course course = new DTO_Course(id,label, period, descrip, semester);
+                    int groupid = (int)comboBoxGroup.SelectedValue;
+                    DTO_Course course = new DTO_Course(id,label, period, descrip, semester, groupid);
                     if (BUSCourse.updateCOURSE(course) == true && course.verif() == true )
                     {
                         MessageBox.Show("course informationg Updated", "edit course", MessageBoxButtons.OK, MessageBoxIcon.Information);

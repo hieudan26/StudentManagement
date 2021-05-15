@@ -105,5 +105,10 @@ namespace GUI_StudentManagement.User
             this.comboBoxGroup.DisplayMember = "name";
             this.comboBoxGroup.ValueMember = "Id";
         }
+
+        private void comboBoxGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

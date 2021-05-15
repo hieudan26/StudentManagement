@@ -22,7 +22,7 @@ namespace DAL_StudentManagement
                 command.Parameters.Add("@period", SqlDbType.Int).Value = course.period;
                 command.Parameters.Add("@description", SqlDbType.VarChar).Value = course.description;
                 command.Parameters.Add("@semester", SqlDbType.Int).Value = course.Semester;
-                command.Parameters.Add("@group_id", SqlDbType.Int).Value = course.group_id;
+                command.Parameters.Add("@group_id", SqlDbType.Int).Value = course.Groupid;
                 this.openConnection();
                 if (command.ExecuteNonQuery() == 1)
                 {
@@ -63,6 +63,25 @@ namespace DAL_StudentManagement
             {
                 SqlCommand command = new SqlCommand("Select * from COURSE where COURSE.Id not in(Select course_id from CourseOfContact inner join COURSE on CourseOfContact.course_id = COURSE.Id) AND COURSE.semester = @semester", this.getConnection);
                 command.Parameters.Add("@semester", SqlDbType.VarChar).Value = semester;
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                return table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                DataTable table = new DataTable();
+                return table;
+            }
+        }
+        public DataTable getCOURSEEmptyGroup(int semester,int group_id)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("Select * from COURSE where COURSE.Id not in(Select course_id from CourseOfContact inner join COURSE on CourseOfContact.course_id = COURSE.Id) AND COURSE.semester = @semester AND COURSE.group_id = @group_id", this.getConnection);
+                command.Parameters.Add("@semester", SqlDbType.VarChar).Value = semester;
+                command.Parameters.Add("@group_id", SqlDbType.VarChar).Value = group_id;
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
@@ -138,12 +157,13 @@ namespace DAL_StudentManagement
         public bool updateCOURSE(DTO_Course course)
         {
             try { 
-                SqlCommand command = new SqlCommand("UPDATE COURSE SET label=@label, period=@period, description=@description, semester =@semester WHERE id =@id", this.getConnection);
+                SqlCommand command = new SqlCommand("UPDATE COURSE SET label=@label, period=@period, description=@description, semester =@semester,group_id =@group_id WHERE id =@id", this.getConnection);
                 command.Parameters.Add("@id", SqlDbType.Int).Value = course.id;
                 command.Parameters.Add("@label", SqlDbType.VarChar).Value = course.label;
                 command.Parameters.Add("@period", SqlDbType.VarChar).Value = course.period;
                 command.Parameters.Add("@description", SqlDbType.VarChar).Value = course.description;
                 command.Parameters.Add("@semester", SqlDbType.Int).Value = course.Semester;
+                command.Parameters.Add("@group_id", SqlDbType.Int).Value = course.Groupid;
                 this.openConnection();
                 if (command.ExecuteNonQuery() == 1)
                 {
@@ -216,5 +236,6 @@ namespace DAL_StudentManagement
                 return table;
             }
         }
+
     }
 }

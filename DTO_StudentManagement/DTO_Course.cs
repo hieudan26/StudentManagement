@@ -21,7 +21,7 @@ namespace DTO_StudentManagement
         public int period { get => iperiod; set => iperiod = value; }
         public string description { get => sdescription; set => sdescription = value; }
         public int Semester { get => iSemester; set => iSemester = value; }
-        public int Groupid { get => Groupid; set => Groupid = value; }
+        public int Groupid { get => iGroupid; set => iGroupid = value; }
         public DTO_Course(int id,string label, int period, string description,int semester,int Groupid)
         {
             this.iid = id;

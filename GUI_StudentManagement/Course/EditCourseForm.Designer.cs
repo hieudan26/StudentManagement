@@ -40,12 +40,14 @@ namespace Login_form
             this.UpdownPeriod = new System.Windows.Forms.NumericUpDown();
             this.txtSemester = new System.Windows.Forms.TextBox();
             this.labelSemester = new System.Windows.Forms.Label();
+            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
+            this.labelGroup = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.UpdownPeriod)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(149, 176);
+            this.txtDescription.Location = new System.Drawing.Point(149, 250);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(340, 115);
@@ -55,7 +57,7 @@ namespace Login_form
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
-            this.labelDescription.Location = new System.Drawing.Point(63, 156);
+            this.labelDescription.Location = new System.Drawing.Point(74, 219);
             this.labelDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(87, 16);
@@ -94,7 +96,7 @@ namespace Login_form
             // 
             this.btnEdit.BackColor = System.Drawing.Color.Red;
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(52, 311);
+            this.btnEdit.Location = new System.Drawing.Point(52, 385);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(492, 48);
@@ -163,12 +165,33 @@ namespace Login_form
             this.labelSemester.TabIndex = 21;
             this.labelSemester.Text = "Semester";
             // 
+            // comboBoxGroup
+            // 
+            this.comboBoxGroup.FormattingEnabled = true;
+            this.comboBoxGroup.Location = new System.Drawing.Point(149, 193);
+            this.comboBoxGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxGroup.Name = "comboBoxGroup";
+            this.comboBoxGroup.Size = new System.Drawing.Size(216, 24);
+            this.comboBoxGroup.TabIndex = 85;
+            // 
+            // labelGroup
+            // 
+            this.labelGroup.AutoSize = true;
+            this.labelGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGroup.Location = new System.Drawing.Point(93, 169);
+            this.labelGroup.Name = "labelGroup";
+            this.labelGroup.Size = new System.Drawing.Size(50, 16);
+            this.labelGroup.TabIndex = 84;
+            this.labelGroup.Text = "Group";
+            // 
             // EditCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(592, 374);
+            this.ClientSize = new System.Drawing.Size(592, 437);
+            this.Controls.Add(this.comboBoxGroup);
+            this.Controls.Add(this.labelGroup);
             this.Controls.Add(this.txtSemester);
             this.Controls.Add(this.labelSemester);
             this.Controls.Add(this.UpdownPeriod);
@@ -205,5 +228,7 @@ namespace Login_form
         private System.Windows.Forms.NumericUpDown UpdownPeriod;
         private System.Windows.Forms.TextBox txtSemester;
         private System.Windows.Forms.Label labelSemester;
+        private System.Windows.Forms.ComboBox comboBoxGroup;
+        private System.Windows.Forms.Label labelGroup;
     }
 }

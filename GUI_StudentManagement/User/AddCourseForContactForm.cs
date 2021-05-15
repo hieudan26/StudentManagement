@@ -68,10 +68,7 @@ namespace GUI_StudentManagement.User
                 if (BUSContact.insertCTCourse(int.Parse(txtID.Text),int.Parse(this.comboCourse.SelectedValue.ToString())))
                 {
                     MessageBox.Show(" Added Success", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    comboCourse.DataSource = BUSCourse.getCOURSEEmpty(int.Parse(this.comboSem.Value.ToString()));
-                    comboCourse.DisplayMember = "label";
-                    comboCourse.ValueMember = "Id";
-                    comboCourse.SelectedIndex = -1;
+                    Reload();
                 }
                 else
                 {
@@ -87,10 +84,7 @@ namespace GUI_StudentManagement.User
 
         private void AddCourseForContactForm_Load(object sender, EventArgs e)
         {
-            comboCourse.DataSource = BUSCourse.getCOURSEEmpty(1);
-            comboCourse.DisplayMember = "label";
-            comboCourse.ValueMember = "Id";
-            comboCourse.SelectedIndex = -1;
+            Reload();
         }
 
         private void comboCourse_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,10 +94,53 @@ namespace GUI_StudentManagement.User
 
         private void comboSem_ValueChanged(object sender, EventArgs e)
         {
-            comboCourse.DataSource = BUSCourse.getCOURSEEmpty(int.Parse(this.comboSem.Value.ToString()));
-            comboCourse.DisplayMember = "label";
-            comboCourse.ValueMember = "Id";
-            comboCourse.SelectedIndex = -1;
+            if(this.txtID.Text.Trim() != "")
+            {
+                int contactID = int.Parse(this.txtID.Text);
+                DataTable table = BUSContact.getContactById(contactID);
+                if (table.Rows.Count <= 0)
+                    MessageBox.Show("ID khong tim thay");
+                else
+                {
+                    Reload();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please choose ID Contact first!");
+            }
+            
+        }
+        private void Reload()
+        {
+            if (this.txtID.Text.Trim() != "")
+            {
+                int contactID = int.Parse(this.txtID.Text);
+                DataTable table = BUSContact.getContactById(contactID);
+                int semester = int.Parse(this.comboSem.Value.ToString());
+                if (table.Rows.Count <= 0)
+                    MessageBox.Show("ID khong tim thay");
+                else
+                {
+                    comboCourse.DataSource = BUSCourse.getCOURSEEmptyGroup(semester, contactID);
+                    comboCourse.DisplayMember = "label";
+                    comboCourse.ValueMember = "Id";
+                    comboCourse.SelectedIndex = -1;
+                }
+            }
+            else
+            {
+                comboCourse.DataSource = BUSCourse.getCOURSEEmpty(int.Parse(this.comboSem.Value.ToString()));
+                comboCourse.DisplayMember = "label";
+                comboCourse.ValueMember = "Id";
+                comboCourse.SelectedIndex = -1;
+            }
+
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+            Reload();
         }
     }
 }

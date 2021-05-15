@@ -22,7 +22,7 @@ namespace Login_form
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (this.txtID.Text == "" || this.txtLabel.Text == "" || this.txtPeriod.Text == "")
+            if (this.txtID.Text == "" || this.txtLabel.Text == "" || this.txtPeriod.Text == "" || comboBoxGroup.SelectedItem == null)
             {
                 MessageBox.Show("Add error", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -34,7 +34,8 @@ namespace Login_form
                 int period = int.Parse(this.txtPeriod.Text);
                 string desciption = this.txtDescription.Text;
                 int semester = int.Parse(this.txtSemester.Text);
-                DTO_Course Course = new DTO_Course(Id,Label,period, desciption,semester);
+                int groupid = (int)comboBoxGroup.SelectedValue;
+                DTO_Course Course = new DTO_Course(Id,Label,period, desciption,semester,groupid);
                 DataTable tb = BUScourse.getCOURSEId(Id);
                 DataTable tb2 = BUScourse.getCOURSELabel(Label, semester);
                 if (tb.Rows.Count > 0)
@@ -59,6 +60,19 @@ namespace Login_form
                 }
                
             }
+        }
+
+        private void labelPeriod_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddCourseForm_Load(object sender, EventArgs e)
+        {
+            BUS_Group BUSGroup = new BUS_Group();
+            this.comboBoxGroup.DataSource = BUSGroup.getGroups(DTO_Global.GlobalUserId);
+            this.comboBoxGroup.DisplayMember = "name";
+            this.comboBoxGroup.ValueMember = "Id";
         }
     }
 }

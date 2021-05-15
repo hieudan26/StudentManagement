@@ -48,12 +48,14 @@ namespace GUI_StudentManagement.Course
             this.UpdownPeriod = new System.Windows.Forms.NumericUpDown();
             this.txtSemester = new System.Windows.Forms.TextBox();
             this.labelSemester = new System.Windows.Forms.Label();
+            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
+            this.Group = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.UpdownPeriod)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(104, 212);
+            this.txtDescription.Location = new System.Drawing.Point(104, 258);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(228, 94);
             this.txtDescription.TabIndex = 17;
@@ -63,7 +65,7 @@ namespace GUI_StudentManagement.Course
             // 
             this.labelDescription.AutoSize = true;
             this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescription.Location = new System.Drawing.Point(41, 189);
+            this.labelDescription.Location = new System.Drawing.Point(41, 235);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(87, 16);
             this.labelDescription.TabIndex = 16;
@@ -106,7 +108,7 @@ namespace GUI_StudentManagement.Course
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.Red;
-            this.btnAdd.Location = new System.Drawing.Point(53, 387);
+            this.btnAdd.Location = new System.Drawing.Point(53, 433);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(82, 36);
             this.btnAdd.TabIndex = 10;
@@ -128,7 +130,7 @@ namespace GUI_StudentManagement.Course
             // 
             this.btnEdit.BackColor = System.Drawing.Color.Red;
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(154, 385);
+            this.btnEdit.Location = new System.Drawing.Point(154, 431);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(95, 40);
@@ -141,7 +143,7 @@ namespace GUI_StudentManagement.Course
             // 
             this.btnRemove.BackColor = System.Drawing.Color.Red;
             this.btnRemove.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRemove.Location = new System.Drawing.Point(267, 385);
+            this.btnRemove.Location = new System.Drawing.Point(267, 431);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(96, 42);
@@ -154,7 +156,7 @@ namespace GUI_StudentManagement.Course
             // 
             this.btnFirst.BackColor = System.Drawing.Color.Black;
             this.btnFirst.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFirst.Location = new System.Drawing.Point(11, 326);
+            this.btnFirst.Location = new System.Drawing.Point(11, 372);
             this.btnFirst.Margin = new System.Windows.Forms.Padding(4);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(96, 42);
@@ -167,7 +169,7 @@ namespace GUI_StudentManagement.Course
             // 
             this.btnPrevious.BackColor = System.Drawing.Color.Black;
             this.btnPrevious.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPrevious.Location = new System.Drawing.Point(115, 326);
+            this.btnPrevious.Location = new System.Drawing.Point(115, 372);
             this.btnPrevious.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(96, 42);
@@ -180,7 +182,7 @@ namespace GUI_StudentManagement.Course
             // 
             this.btnNext.BackColor = System.Drawing.Color.Black;
             this.btnNext.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnNext.Location = new System.Drawing.Point(219, 326);
+            this.btnNext.Location = new System.Drawing.Point(219, 372);
             this.btnNext.Margin = new System.Windows.Forms.Padding(4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(96, 42);
@@ -193,7 +195,7 @@ namespace GUI_StudentManagement.Course
             // 
             this.btnLast.BackColor = System.Drawing.Color.Black;
             this.btnLast.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLast.Location = new System.Drawing.Point(323, 326);
+            this.btnLast.Location = new System.Drawing.Point(323, 372);
             this.btnLast.Margin = new System.Windows.Forms.Padding(4);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(96, 42);
@@ -262,11 +264,33 @@ namespace GUI_StudentManagement.Course
             this.labelSemester.TabIndex = 27;
             this.labelSemester.Text = "Semester";
             // 
+            // comboBoxGroup
+            // 
+            this.comboBoxGroup.FormattingEnabled = true;
+            this.comboBoxGroup.Location = new System.Drawing.Point(104, 212);
+            this.comboBoxGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxGroup.Name = "comboBoxGroup";
+            this.comboBoxGroup.Size = new System.Drawing.Size(204, 21);
+            this.comboBoxGroup.TabIndex = 107;
+            // 
+            // Group
+            // 
+            this.Group.AutoSize = true;
+            this.Group.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Group.Location = new System.Drawing.Point(50, 192);
+            this.Group.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Group.Name = "Group";
+            this.Group.Size = new System.Drawing.Size(55, 18);
+            this.Group.TabIndex = 106;
+            this.Group.Text = "Group";
+            // 
             // ManageCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 488);
+            this.Controls.Add(this.comboBoxGroup);
+            this.Controls.Add(this.Group);
             this.Controls.Add(this.txtSemester);
             this.Controls.Add(this.labelSemester);
             this.Controls.Add(this.UpdownPeriod);
@@ -316,5 +340,7 @@ namespace GUI_StudentManagement.Course
         private System.Windows.Forms.NumericUpDown UpdownPeriod;
         private System.Windows.Forms.TextBox txtSemester;
         private System.Windows.Forms.Label labelSemester;
+        private System.Windows.Forms.ComboBox comboBoxGroup;
+        private System.Windows.Forms.Label Group;
     }
 }
