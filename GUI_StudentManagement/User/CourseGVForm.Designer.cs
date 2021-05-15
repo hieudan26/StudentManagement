@@ -1,7 +1,7 @@
 ﻿
-namespace GUI_StudentManagement.Score
+namespace GUI_StudentManagement.User
 {
-    partial class AVGCourseForm
+    partial class CourseGVForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,34 +29,34 @@ namespace GUI_StudentManagement.Score
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.listBoxGroup = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // listBoxGroup
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(227, 221);
-            this.dataGridView1.TabIndex = 0;
+            this.listBoxGroup.FormattingEnabled = true;
+            this.listBoxGroup.Location = new System.Drawing.Point(11, 4);
+            this.listBoxGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxGroup.Name = "listBoxGroup";
+            this.listBoxGroup.Size = new System.Drawing.Size(217, 355);
+            this.listBoxGroup.TabIndex = 28;
+            this.listBoxGroup.SelectedIndexChanged += new System.EventHandler(this.listBoxGroup_SelectedIndexChanged);
             // 
-            // AVGCourseForm
+            // CourseGVForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(252, 245);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "AVGCourseForm";
-            this.Text = "AVGCourseForm";
-            this.Load += new System.EventHandler(this.AVGCourseForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ClientSize = new System.Drawing.Size(239, 372);
+            this.Controls.Add(this.listBoxGroup);
+            this.Name = "CourseGVForm";
+            this.Text = "CourseGVForm";
+            this.Load += new System.EventHandler(this.CourseGVForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ListBox listBoxGroup;
     }
 }

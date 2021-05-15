@@ -54,6 +54,7 @@ namespace GUI_StudentManagement.Student
             this.groupUdateStudent = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pictureStudent = new System.Windows.Forms.PictureBox();
+            this.btnAddCourse = new System.Windows.Forms.Button();
             this.groupUdateStudent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
             this.SuspendLayout();
@@ -286,6 +287,7 @@ namespace GUI_StudentManagement.Student
             // groupUdateStudent
             // 
             this.groupUdateStudent.BackColor = System.Drawing.Color.White;
+            this.groupUdateStudent.Controls.Add(this.btnAddCourse);
             this.groupUdateStudent.Controls.Add(this.btnFindId);
             this.groupUdateStudent.Controls.Add(this.btnSearch);
             this.groupUdateStudent.Controls.Add(this.IDLabel);
@@ -345,6 +347,19 @@ namespace GUI_StudentManagement.Student
             this.pictureStudent.TabIndex = 42;
             this.pictureStudent.TabStop = false;
             // 
+            // btnAddCourse
+            // 
+            this.btnAddCourse.BackColor = System.Drawing.Color.Gray;
+            this.btnAddCourse.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAddCourse.Location = new System.Drawing.Point(815, 452);
+            this.btnAddCourse.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAddCourse.Name = "btnAddCourse";
+            this.btnAddCourse.Size = new System.Drawing.Size(129, 47);
+            this.btnAddCourse.TabIndex = 54;
+            this.btnAddCourse.Text = "Add Course";
+            this.btnAddCourse.UseVisualStyleBackColor = false;
+            this.btnAddCourse.Click += new System.EventHandler(this.btnAddCourse_Click);
+            // 
             // UpdateStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
@@ -390,5 +405,6 @@ namespace GUI_StudentManagement.Student
         public System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.GroupBox groupUdateStudent;
         public System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnAddCourse;
     }
 }

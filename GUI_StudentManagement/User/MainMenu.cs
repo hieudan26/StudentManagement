@@ -34,7 +34,8 @@ namespace GUI_StudentManagement.Student
 
         private void staticListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            StaticStudent form = new StaticStudent();
+            form.Show();
         }
 
         private void editRemoveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -147,6 +148,18 @@ namespace GUI_StudentManagement.Student
         {
             RemoveScoreForm tempForm = new RemoveScoreForm();
             tempForm.Show();
+        }
+
+        private void printToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PrintForm tempForm = new PrintForm();
+            tempForm.Show();
+        }
+
+        private void toolStripPrintScore_Click(object sender, EventArgs e)
+        {
+            PrintScore form = new PrintScore();
+            form.Show();
         }
     }
 }

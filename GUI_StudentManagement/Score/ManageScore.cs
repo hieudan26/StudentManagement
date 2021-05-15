@@ -18,6 +18,7 @@ namespace GUI_StudentManagement.Score
         BUS_Student BUSstudent = new BUS_Student();
         BUS_Course BUSCourse = new BUS_Course();
         BUS_Score BUSScore = new BUS_Score();
+        private int check = 0;
         public ManageScore()
         {
             InitializeComponent();
@@ -33,38 +34,25 @@ namespace GUI_StudentManagement.Score
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int idStudent = int.Parse(txtID.Text);
-                int idCourse = int.Parse(comboCourse.SelectedValue.ToString());
-                float score = float.Parse(txtScore.Text);
-                string desciption = txtDescription.Text;
-                if (BUSScore.getSCOREAStudent(idStudent, idCourse).Rows.Count == 0)
-                {
-                    DTO_Score Score = new DTO_Score(idStudent, idCourse, score, desciption);
-                    if (BUSScore.insertSCORE(Score))
-                    {
-                        MessageBox.Show("Student score inserted");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Student score is not inserted");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Student score is exited" + BUSScore.getSCOREAStudent(idStudent, idCourse).Rows.Count);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            AddScoreForm form = new AddScoreForm();
+            form.Show();
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
-            txtID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            if(this.check == 0)
+            {
+                this.txtID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                this.txtScore.Text = "";
+                this.txtDescription.Text = "";
+            }    
+            if(this.check == 1)
+            {
+                this.txtID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                this.comboCourse.SelectedValue = dataGridView1.CurrentRow.Cells[1].Value;
+                this.txtScore.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                this.txtDescription.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            }    
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -96,11 +84,13 @@ namespace GUI_StudentManagement.Score
 
         private void btnStudent_Click(object sender, EventArgs e)
         {
+            this.check = 0;
             dataGridView1.DataSource = BUSstudent.getAllIfnoStudent();
         }
 
         private void btnScore_Click(object sender, EventArgs e)
         {
+            this.check = 1;
             dataGridView1.DataSource = BUSScore.getSCORE();
         }
 

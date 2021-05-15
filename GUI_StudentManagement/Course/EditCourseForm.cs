@@ -64,9 +64,10 @@ namespace Login_form
             {
                 try
                 {
-                    DTO_Course course = new DTO_Course(label, period, descrip,semester);
+                   
                     int id = Convert.ToInt32(comboboxID.SelectedValue);
-                    if (BUSCourse.updateCOURSE(course,id) == true && course.verif() == true )
+                    DTO_Course course = new DTO_Course(id,label, period, descrip, semester);
+                    if (BUSCourse.updateCOURSE(course) == true && course.verif() == true )
                     {
                         MessageBox.Show("course informationg Updated", "edit course", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

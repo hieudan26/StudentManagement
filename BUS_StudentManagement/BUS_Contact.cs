@@ -31,6 +31,11 @@ namespace BUS_StudentManagement
             return DALcontact.getContactById(id);
         }
 
+        public DataTable getContactByGroupId(int id)
+        {
+            return DALcontact.getContactByGroupId(id);
+        }
+
         public DataTable getContactByUserId(int userid)
         {
             return DALcontact.getContactByUserId(userid);
@@ -44,6 +49,30 @@ namespace BUS_StudentManagement
         public bool checkId(int courseId)
         {
             return DALcontact.checkId(courseId);
+        }
+        public bool insertCTCourse(int contact_id,int course_id)
+        {
+            return DALcontact.insertCTCourse(contact_id,course_id);
+        }
+        public bool checkIdContatct(int contact_id)
+        {
+            return DALcontact.checkIdContatct(contact_id);
+        }
+        public bool checkIdCourse(int course_id)
+        {
+            return DALcontact.checkIdCourse(course_id);
+        }
+        public DataTable getIDCourse(int contact_id)
+        {
+            return DALcontact.getIDCourse(contact_id);
+        }
+        public DataTable getIDAllCourse(int contact_id)
+        {
+            return DALcontact.getIDAllCourse(contact_id);
+        }
+        public bool checkIdinsertCourt(int contact_id,int course_id)
+        {
+            return DALcontact.checkIdinsertCourt(contact_id,course_id);
         }
     }
 }

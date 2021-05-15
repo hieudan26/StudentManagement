@@ -28,12 +28,12 @@ namespace GUI_StudentManagement.User
             
             if (table.Rows.Count > 0)
             {
-                byte[] pic = (byte[])table.Rows[0]["fig"];
+                byte[] pic = (byte[])table.Rows[0]["picture"];
                 MemoryStream picture = new MemoryStream(pic);
                 this.pictureBoxUser.Image = Image.FromStream(picture);
 
-                this.labelTitle.Text = "Welcome (" + table.Rows[0]["uname"].ToString().Trim() + ")";
-                this.labelName.Text = "(" + table.Rows[0]["f_name"].ToString().Trim() + " " + table.Rows[0]["l_name"].ToString().Trim() + ")";
+                this.labelTitle.Text = "Welcome (" + table.Rows[0]["username"].ToString().Trim() + ")";
+                this.labelName.Text = "(" + table.Rows[0]["fname"].ToString().Trim() + " " + table.Rows[0]["lname"].ToString().Trim() + ")";
             }
         }
 
@@ -112,7 +112,7 @@ namespace GUI_StudentManagement.User
 
         private void buttonShowFull_Click_1(object sender, EventArgs e)
         {
-            ShowFullListForm showfull = new ShowFullListForm();
+            btnAddcourse showfull = new btnAddcourse();
             showfull.Show();
         }
 

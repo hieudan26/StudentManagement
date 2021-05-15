@@ -119,7 +119,7 @@ namespace GUI_StudentManagement.User
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(625, 39);
+            this.labelName.Location = new System.Drawing.Point(569, 40);
             this.labelName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(41, 13);
@@ -153,7 +153,7 @@ namespace GUI_StudentManagement.User
             // 
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelTitle.Location = new System.Drawing.Point(508, 2);
+            this.labelTitle.Location = new System.Drawing.Point(504, 3);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(158, 28);

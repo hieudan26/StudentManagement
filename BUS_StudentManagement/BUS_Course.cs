@@ -25,17 +25,17 @@ namespace BUS_StudentManagement
         {
             return DALcourse.getCOURSEId(id);
         }
-        public DataTable getCOURSELabel(string label)
+        public DataTable getCOURSELabel(string label, int semeste)
         {
-            return DALcourse.getCOURSELabel(label);
+            return DALcourse.getCOURSELabel(label, semeste);
         }
         public bool deleteSCOURSE(int id)
         {
             return DALcourse.deleteSCOURSE(id);
         }
-        public bool updateCOURSE(DTO_Course course,int id)
+        public bool updateCOURSE(DTO_Course course)
         {
-            return DALcourse.updateCOURSE(course, id);
+            return DALcourse.updateCOURSE(course);
         }
         public DataTable getCOURSELabeInsemester(int id_course, int semester)
         {
@@ -49,6 +49,16 @@ namespace BUS_StudentManagement
         {
             
             return DALcourse.getCOURSELabelStudent(id_course, semester);
+        }
+        public DataTable getCOURSEEmpty(int semester)
+        {
+
+            return DALcourse.getCOURSEEmpty(semester);
+        }
+        public DataTable gettableCOURSEsemester(int semeter)
+        {
+
+            return DALcourse.gettableCOURSEsemester(semeter);
         }
     }
 }

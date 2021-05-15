@@ -34,28 +34,35 @@ namespace GUI_StudentManagement.Student
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(this.txtID.Text);
-            string fname = this.txtFirstName.Text;
-            string lname = txtLastName.Text;
-            DateTime bdt = (DateTime)this.dateBirthDay.Value;
-            string phone = this.txtPhone.Text;
-            string adr = this.txtAddress.Text;
-            string gender = "Male";
-            if (this.radioFemale.Checked == true)
-                gender = "Female";
-            MemoryStream pic = new MemoryStream();
-            this.pictureStudent.Image.Save(pic, pictureStudent.Image.RawFormat);
-            DTO_Student student = new DTO_Student(id, lname, fname, bdt, phone, adr, gender, pic);
-            if (student.verif())
+            try
             {
-                if (BUSstudent.updateStudent(student) == true)
+                int id = Convert.ToInt32(this.txtID.Text);
+                string fname = this.txtFirstName.Text;
+                string lname = txtLastName.Text;
+                DateTime bdt = (DateTime)this.dateBirthDay.Value;
+                string phone = this.txtPhone.Text;
+                string adr = this.txtAddress.Text;
+                string gender = "Male";
+                if (this.radioFemale.Checked == true)
+                    gender = "Female";
+                MemoryStream pic = new MemoryStream();
+                this.pictureStudent.Image.Save(pic, pictureStudent.Image.RawFormat);
+                DTO_Student student = new DTO_Student(id, lname, fname, bdt, phone, adr, gender, pic);
+                if (student.verif())
                 {
-                    MessageBox.Show("Student Updated", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (BUSstudent.updateStudent(student) == true)
+                    {
+                        MessageBox.Show("Student Updated", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Update Error", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Update Error", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid ID", "Student Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -154,6 +161,28 @@ namespace GUI_StudentManagement.Student
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAddCourse_Click(object sender, EventArgs e)
+        {
+
+            if (this.txtID.Text != "")
+            {
+                DataTable X = BUSstudent.getStudentsId(int.Parse(this.txtID.Text));
+                if (X != null && X.Rows.Count != 0)
+                {
+                    AddCOurseSTudent form = new AddCOurseSTudent();
+                    form.txtStudentId.Text = this.txtID.Text;
+                    this.Hide();
+                    form.ShowDialog();
+                    this.Show();
+                }
+                else
+                    MessageBox.Show("Id is not exited");
+
+            }
+            else
+                MessageBox.Show("Id is empty");
         }
     }
 }

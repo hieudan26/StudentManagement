@@ -76,7 +76,7 @@ namespace GUI_StudentManagement.Score
         private void AddCourse(DataTable table)
         {
             int temp = table.Columns.Count;
-            DataTable tableCourse = BUSCourse.getCOURSE();
+            DataTable tableCourse = BUSCourse.gettableCOURSEsemester(1);
             for (int i = 0; i < tableCourse.Rows.Count; i++)
             {
                 table.Columns.Add(tableCourse.Rows[i][1].ToString().Trim(), typeof(string)).SetOrdinal(3);

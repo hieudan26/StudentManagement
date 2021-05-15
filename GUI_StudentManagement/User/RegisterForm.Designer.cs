@@ -43,6 +43,7 @@ namespace GUI_StudentManagement.User
             this.Lname = new System.Windows.Forms.Label();
             this.Fname = new System.Windows.Forms.Label();
             this.UserID = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,12 +180,24 @@ namespace GUI_StudentManagement.User
             this.UserID.TabIndex = 36;
             this.UserID.Text = "User ID";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(181, 501);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(165, 13);
+            this.linkLabel1.TabIndex = 50;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Have an account? Back to Login";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(529, 500);
+            this.ClientSize = new System.Drawing.Size(534, 523);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.Password);
             this.Controls.Add(this.Register);
@@ -194,11 +207,11 @@ namespace GUI_StudentManagement.User
             this.Controls.Add(this.textBoxLastName);
             this.Controls.Add(this.textBoxFirstName);
             this.Controls.Add(this.textBoxUserID);
-            this.Controls.Add(this.Picture);
             this.Controls.Add(this.Username);
             this.Controls.Add(this.Lname);
             this.Controls.Add(this.Fname);
             this.Controls.Add(this.UserID);
+            this.Controls.Add(this.Picture);
             this.Name = "RegisterForm";
             this.Text = "RegisterForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
@@ -223,5 +236,6 @@ namespace GUI_StudentManagement.User
         private System.Windows.Forms.Label Lname;
         private System.Windows.Forms.Label Fname;
         private System.Windows.Forms.Label UserID;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

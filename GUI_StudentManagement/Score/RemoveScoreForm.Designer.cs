@@ -40,12 +40,12 @@ namespace GUI_StudentManagement.Score
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(35, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(701, 312);
+            this.dataGridView1.Size = new System.Drawing.Size(554, 306);
             this.dataGridView1.TabIndex = 0;
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(288, 361);
+            this.btnRemove.Location = new System.Drawing.Point(211, 349);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(168, 42);
             this.btnRemove.TabIndex = 1;
@@ -57,7 +57,7 @@ namespace GUI_StudentManagement.Score
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 444);
+            this.ClientSize = new System.Drawing.Size(624, 444);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.dataGridView1);
             this.Name = "RemoveScoreForm";

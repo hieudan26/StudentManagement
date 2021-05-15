@@ -1,7 +1,7 @@
 ﻿
 namespace GUI_StudentManagement.User
 {
-    partial class ShowFullListForm
+    partial class btnAddcourse
     {
         /// <summary>
         /// Required designer variable.
@@ -29,35 +29,15 @@ namespace GUI_StudentManagement.User
         /// </summary>
         private void InitializeComponent()
         {
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.buttonShow = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewListContact = new System.Windows.Forms.DataGridView();
             this.listBoxGroup = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListContact)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(708, 48);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 17);
-            this.label4.TabIndex = 34;
-            this.label4.Text = "Full Address";
-            // 
-            // textBoxAddress
-            // 
-            this.textBoxAddress.Location = new System.Drawing.Point(655, 74);
-            this.textBoxAddress.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.Size = new System.Drawing.Size(186, 20);
-            this.textBoxAddress.TabIndex = 33;
             // 
             // buttonShow
             // 
@@ -115,6 +95,7 @@ namespace GUI_StudentManagement.User
             this.dataGridViewListContact.RowTemplate.Height = 24;
             this.dataGridViewListContact.Size = new System.Drawing.Size(746, 250);
             this.dataGridViewListContact.TabIndex = 28;
+            this.dataGridViewListContact.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewListContact_MouseDoubleClick);
             // 
             // listBoxGroup
             // 
@@ -124,21 +105,33 @@ namespace GUI_StudentManagement.User
             this.listBoxGroup.Name = "listBoxGroup";
             this.listBoxGroup.Size = new System.Drawing.Size(162, 251);
             this.listBoxGroup.TabIndex = 27;
+            this.listBoxGroup.Click += new System.EventHandler(this.listBoxGroup_Click);
             // 
-            // ShowFullListForm
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(478, 73);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(189, 26);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "Add Course for Contact";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnAddcourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 367);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBoxAddress);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonShow);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewListContact);
             this.Controls.Add(this.listBoxGroup);
-            this.Name = "ShowFullListForm";
+            this.Name = "btnAddcourse";
             this.Text = "ShowFullListForm";
             this.Load += new System.EventHandler(this.ShowFullListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListContact)).EndInit();
@@ -148,14 +141,12 @@ namespace GUI_StudentManagement.User
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxAddress;
         private System.Windows.Forms.Button buttonShow;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewListContact;
         private System.Windows.Forms.ListBox listBoxGroup;
+        private System.Windows.Forms.Button button1;
     }
 }

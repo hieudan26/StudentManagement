@@ -34,9 +34,9 @@ namespace Login_form
                 int period = int.Parse(this.txtPeriod.Text);
                 string desciption = this.txtDescription.Text;
                 int semester = int.Parse(this.txtSemester.Text);
-                DTO_Course Course = new DTO_Course(Label,period, desciption,semester);
+                DTO_Course Course = new DTO_Course(Id,Label,period, desciption,semester);
                 DataTable tb = BUScourse.getCOURSEId(Id);
-                DataTable tb2 = BUScourse.getCOURSELabel(Label);
+                DataTable tb2 = BUScourse.getCOURSELabel(Label, semester);
                 if (tb.Rows.Count > 0)
                 {
                     MessageBox.Show("Register Error ID existence", "Add COURSE", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -50,7 +50,7 @@ namespace Login_form
                     if (BUScourse.insertCOURSE(Course) == true)
                     {
                         MessageBox.Show("Add succesfully", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Close();
+                        //Close();
                     }
                     else
                     {

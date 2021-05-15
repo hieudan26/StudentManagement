@@ -12,7 +12,7 @@ namespace DTO_StudentManagement
     {
         public static int GlobalUserId { get; private set; }
 
-        public static void SetGlabelUserId(int userID)
+        public static void SetGlobalUserId(int userID)
         {
             GlobalUserId = userID;
         }

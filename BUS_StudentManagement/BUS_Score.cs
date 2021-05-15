@@ -31,7 +31,11 @@ namespace BUS_StudentManagement
         }
         public DataTable getSCOREbyIDCourse(int idCourse)
         {
-            return getSCOREbyIDCourse(idCourse);
+            return scoreDAL.getSCOREbyIDCourse(idCourse);
+        }
+        public DataTable getSCOREbyListStudentCourse(int idCourse)
+        {
+            return scoreDAL.getSCOREbyListStudentCourse(idCourse);
         }
         public bool deleteScore(int idStudent, int idCourse)
         {

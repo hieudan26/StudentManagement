@@ -30,7 +30,6 @@ namespace GUI_StudentManagement.Student
         private void InitializeComponent()
         {
             System.Windows.Forms.Label StudentIdLabel;
-            this.AddFileBtn = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.btnUploadPic = new System.Windows.Forms.Button();
@@ -51,7 +50,6 @@ namespace GUI_StudentManagement.Student
             this.groupAdd = new System.Windows.Forms.GroupBox();
             this.pictureStudent = new System.Windows.Forms.PictureBox();
             this.GenderLabel = new System.Windows.Forms.Label();
-            this.btnAddCourse = new System.Windows.Forms.Button();
             StudentIdLabel = new System.Windows.Forms.Label();
             this.groupAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
@@ -67,19 +65,6 @@ namespace GUI_StudentManagement.Student
             StudentIdLabel.Size = new System.Drawing.Size(74, 15);
             StudentIdLabel.TabIndex = 24;
             StudentIdLabel.Text = "Student ID";
-            // 
-            // AddFileBtn
-            // 
-            this.AddFileBtn.BackColor = System.Drawing.Color.Gray;
-            this.AddFileBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.AddFileBtn.Location = new System.Drawing.Point(946, 18);
-            this.AddFileBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.AddFileBtn.Name = "AddFileBtn";
-            this.AddFileBtn.Size = new System.Drawing.Size(60, 58);
-            this.AddFileBtn.TabIndex = 43;
-            this.AddFileBtn.Text = "Add from File";
-            this.AddFileBtn.UseVisualStyleBackColor = false;
-            this.AddFileBtn.Click += new System.EventHandler(this.AddFileBtn_Click);
             // 
             // btnAdd
             // 
@@ -259,9 +244,7 @@ namespace GUI_StudentManagement.Student
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupAdd.BackColor = System.Drawing.Color.MintCream;
-            this.groupAdd.Controls.Add(this.btnAddCourse);
             this.groupAdd.Controls.Add(StudentIdLabel);
-            this.groupAdd.Controls.Add(this.AddFileBtn);
             this.groupAdd.Controls.Add(this.txtStudentId);
             this.groupAdd.Controls.Add(this.btnAdd);
             this.groupAdd.Controls.Add(this.txtLastName);
@@ -312,19 +295,6 @@ namespace GUI_StudentManagement.Student
             this.GenderLabel.TabIndex = 32;
             this.GenderLabel.Text = "Gender";
             // 
-            // btnAddCourse
-            // 
-            this.btnAddCourse.BackColor = System.Drawing.Color.Gray;
-            this.btnAddCourse.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAddCourse.Location = new System.Drawing.Point(736, 444);
-            this.btnAddCourse.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnAddCourse.Name = "btnAddCourse";
-            this.btnAddCourse.Size = new System.Drawing.Size(129, 47);
-            this.btnAddCourse.TabIndex = 44;
-            this.btnAddCourse.Text = "Add Course";
-            this.btnAddCourse.UseVisualStyleBackColor = false;
-            this.btnAddCourse.Click += new System.EventHandler(this.btnAddCourse_Click);
-            // 
             // AddStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -344,8 +314,6 @@ namespace GUI_StudentManagement.Student
         }
 
         #endregion
-
-        private System.Windows.Forms.Button AddFileBtn;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button btnUploadPic;
@@ -366,6 +334,5 @@ namespace GUI_StudentManagement.Student
         private System.Windows.Forms.TextBox txtStudentId;
         private System.Windows.Forms.GroupBox groupAdd;
         private System.Windows.Forms.Label GenderLabel;
-        private System.Windows.Forms.Button btnAddCourse;
     }
 }

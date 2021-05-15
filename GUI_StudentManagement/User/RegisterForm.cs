@@ -93,5 +93,10 @@ namespace GUI_StudentManagement.User
                 MessageBox.Show("Loi"+ ex.Message, "Register", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Close();
+        }
     }
 }

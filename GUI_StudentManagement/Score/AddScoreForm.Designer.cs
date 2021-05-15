@@ -32,13 +32,15 @@ namespace GUI_StudentManagement.Score
             this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.labelDescription = new System.Windows.Forms.Label();
             this.txtScore = new System.Windows.Forms.TextBox();
-            this.labelScore = new System.Windows.Forms.Label();
+            this.semesterScore = new System.Windows.Forms.Label();
             this.labelCourse = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.labelID = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboCourse = new System.Windows.Forms.ComboBox();
+            this.txtsemester = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,15 +69,15 @@ namespace GUI_StudentManagement.Score
             this.txtScore.Size = new System.Drawing.Size(77, 20);
             this.txtScore.TabIndex = 15;
             // 
-            // labelScore
+            // semesterScore
             // 
-            this.labelScore.AutoSize = true;
-            this.labelScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelScore.Location = new System.Drawing.Point(77, 122);
-            this.labelScore.Name = "labelScore";
-            this.labelScore.Size = new System.Drawing.Size(49, 16);
-            this.labelScore.TabIndex = 14;
-            this.labelScore.Text = "Score";
+            this.semesterScore.AutoSize = true;
+            this.semesterScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.semesterScore.Location = new System.Drawing.Point(334, 77);
+            this.semesterScore.Name = "semesterScore";
+            this.semesterScore.Size = new System.Drawing.Size(74, 16);
+            this.semesterScore.TabIndex = 14;
+            this.semesterScore.Text = "Semester";
             // 
             // labelCourse
             // 
@@ -91,7 +93,7 @@ namespace GUI_StudentManagement.Score
             // 
             this.txtID.Location = new System.Drawing.Point(134, 54);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(145, 20);
+            this.txtID.Size = new System.Drawing.Size(77, 20);
             this.txtID.TabIndex = 11;
             // 
             // btnAdd
@@ -120,7 +122,7 @@ namespace GUI_StudentManagement.Score
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(436, 36);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(279, 341);
+            this.dataGridView1.Size = new System.Drawing.Size(448, 341);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
@@ -129,21 +131,41 @@ namespace GUI_StudentManagement.Score
             this.comboCourse.FormattingEnabled = true;
             this.comboCourse.Location = new System.Drawing.Point(134, 96);
             this.comboCourse.Name = "comboCourse";
-            this.comboCourse.Size = new System.Drawing.Size(145, 21);
+            this.comboCourse.Size = new System.Drawing.Size(193, 21);
             this.comboCourse.TabIndex = 19;
+            this.comboCourse.SelectedIndexChanged += new System.EventHandler(this.comboCourse_SelectedIndexChanged);
+            // 
+            // txtsemester
+            // 
+            this.txtsemester.Location = new System.Drawing.Point(353, 97);
+            this.txtsemester.Name = "txtsemester";
+            this.txtsemester.Size = new System.Drawing.Size(77, 20);
+            this.txtsemester.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(83, 126);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 16);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Score";
             // 
             // AddScoreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(727, 401);
+            this.ClientSize = new System.Drawing.Size(896, 405);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtsemester);
             this.Controls.Add(this.comboCourse);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.txtScore);
-            this.Controls.Add(this.labelScore);
+            this.Controls.Add(this.semesterScore);
             this.Controls.Add(this.labelCourse);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnAdd);
@@ -162,12 +184,14 @@ namespace GUI_StudentManagement.Score
         private System.Windows.Forms.RichTextBox txtDescription;
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.TextBox txtScore;
-        private System.Windows.Forms.Label labelScore;
+        private System.Windows.Forms.Label semesterScore;
         private System.Windows.Forms.Label labelCourse;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox comboCourse;
+        private System.Windows.Forms.TextBox txtsemester;
+        private System.Windows.Forms.Label label1;
     }
 }

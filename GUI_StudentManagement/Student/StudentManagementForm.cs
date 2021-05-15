@@ -24,28 +24,35 @@ namespace GUI_StudentManagement.Student
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(this.txtId.Text);
-            string fname = txtFirstName.Text;
-            string lname = txtLastName.Text;
-            DateTime bdt = dateBirthDay.Value;
-            string phone = txtPhone.Text;
-            string adr = txtAddress.Text;
-            string gender = "Male";
-            if (radioFemale.Checked == true)
-                gender = "Female";
-            MemoryStream pic = new MemoryStream();
-            pictureStudent.Image.Save(pic, pictureStudent.Image.RawFormat);
-            DTO_Student student = new DTO_Student(id, lname, fname, bdt, phone, adr, gender, pic);
-            if (BUSstudent.verifyStudent(student) == true && student.verif() == true)
+            if (this.txtId.Text != "")
             {
-                if (BUSstudent.insertStudent(student) == true)
+                int id = Convert.ToInt32(this.txtId.Text);
+                string fname = txtFirstName.Text;
+                string lname = txtLastName.Text;
+                DateTime bdt = dateBirthDay.Value;
+                string phone = txtPhone.Text;
+                string adr = txtAddress.Text;
+                string gender = "Male";
+                if (radioFemale.Checked == true)
+                    gender = "Female";
+                MemoryStream pic = new MemoryStream();
+                pictureStudent.Image.Save(pic, pictureStudent.Image.RawFormat);
+                DTO_Student student = new DTO_Student(id, lname, fname, bdt, phone, adr, gender, pic);
+                if (BUSstudent.verifyStudent(student) == true && student.verif() == true)
                 {
-                    MessageBox.Show("New Student Added", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (BUSstudent.insertStudent(student) == true)
+                    {
+                        MessageBox.Show("New Student Added", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Add Error", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Add Error", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            else
+            {
+                MessageBox.Show("ID Error", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -75,29 +82,37 @@ namespace GUI_StudentManagement.Student
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(this.txtId.Text);
-            string fname = this.txtFirstName.Text;
-            string lname = txtLastName.Text;
-            DateTime bdt = (DateTime)this.dateBirthDay.Value;
-            string phone = this.txtPhone.Text;
-            string adr = this.txtAddress.Text;
-            string gender = "Male";
-            if (this.radioFemale.Checked == true)
-                gender = "Female";
-            MemoryStream pic = new MemoryStream();
-            this.pictureStudent.Image.Save(pic, pictureStudent.Image.RawFormat);
-            DTO_Student student = new DTO_Student(id, lname, fname, bdt, phone, adr, gender, pic);
-            if (student.verif())
+            if(this.txtId.Text !="")
             {
-                if (BUSstudent.updateStudent(student) == true)
+                int id = Convert.ToInt32(this.txtId.Text);
+                string fname = this.txtFirstName.Text;
+                string lname = txtLastName.Text;
+                DateTime bdt = (DateTime)this.dateBirthDay.Value;
+                string phone = this.txtPhone.Text;
+                string adr = this.txtAddress.Text;
+                string gender = "Male";
+                if (this.radioFemale.Checked == true)
+                    gender = "Female";
+                MemoryStream pic = new MemoryStream();
+                this.pictureStudent.Image.Save(pic, pictureStudent.Image.RawFormat);
+                DTO_Student student = new DTO_Student(id, lname, fname, bdt, phone, adr, gender, pic);
+                if (student.verif())
                 {
-                    MessageBox.Show("Student Updated", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Update Error", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (BUSstudent.updateStudent(student) == true)
+                    {
+                        MessageBox.Show("Student Updated", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Update Error", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("ID Error", "Update Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -133,20 +148,28 @@ namespace GUI_StudentManagement.Student
 
         private void gridviewStudent_DoubleClick(object sender, EventArgs e)
         {
-            this.txtId.Text = this.gridviewStudent.CurrentRow.Cells[0].Value.ToString();
-            this.txtFirstName.Text = this.gridviewStudent.CurrentRow.Cells[1].Value.ToString();
-            this.txtLastName.Text = this.gridviewStudent.CurrentRow.Cells[2].Value.ToString();
-            this.dateBirthDay.Value = (DateTime)this.gridviewStudent.CurrentRow.Cells[3].Value;
-            if (this.gridviewStudent.CurrentRow.Cells[4].Value.ToString() == "Female    ")
-                this.radioFemale.Checked = true;
-            else
-                this.radioMale.Checked = true;
-            this.txtPhone.Text = this.gridviewStudent.CurrentRow.Cells[5].Value.ToString();
-            this.txtAddress.Text = this.gridviewStudent.CurrentRow.Cells[6].Value.ToString();
-            byte[] pic;
-            pic = (byte[])this.gridviewStudent.CurrentRow.Cells[7].Value;
-            MemoryStream picture = new MemoryStream(pic);
-            this.pictureStudent.Image = Image.FromStream(picture);
+            try
+            {
+                this.txtId.Text = this.gridviewStudent.CurrentRow.Cells[0].Value.ToString();
+                this.txtFirstName.Text = this.gridviewStudent.CurrentRow.Cells[1].Value.ToString();
+                this.txtLastName.Text = this.gridviewStudent.CurrentRow.Cells[2].Value.ToString();
+                this.dateBirthDay.Value = (DateTime)this.gridviewStudent.CurrentRow.Cells[3].Value;
+                if (this.gridviewStudent.CurrentRow.Cells[4].Value.ToString() == "Female    ")
+                    this.radioFemale.Checked = true;
+                else
+                    this.radioMale.Checked = true;
+                this.txtPhone.Text = this.gridviewStudent.CurrentRow.Cells[5].Value.ToString();
+                this.txtAddress.Text = this.gridviewStudent.CurrentRow.Cells[6].Value.ToString();
+                byte[] pic;
+                pic = (byte[])this.gridviewStudent.CurrentRow.Cells[7].Value;
+                MemoryStream picture = new MemoryStream(pic);
+
+                this.pictureStudent.Image = Image.FromStream(picture);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnFindId_Click(object sender, EventArgs e)

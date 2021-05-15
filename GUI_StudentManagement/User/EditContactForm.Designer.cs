@@ -277,6 +277,7 @@ namespace GUI_StudentManagement.User
             this.Controls.Add(this.FirstName);
             this.Name = "EditContactForm";
             this.Text = "EditContactForm";
+            this.Load += new System.EventHandler(this.EditContactForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxStudentImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

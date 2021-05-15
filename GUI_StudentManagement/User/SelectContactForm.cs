@@ -39,5 +39,10 @@ namespace GUI_StudentManagement.User
         {
             this.loadData();
         }
+
+        private void dataGridViewListContact_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Close();
+        }
     }
 }

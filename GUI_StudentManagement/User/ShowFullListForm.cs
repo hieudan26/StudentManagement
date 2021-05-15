@@ -11,12 +11,13 @@ using DTO_StudentManagement;
 using BUS_StudentManagement;
 using System.IO;
 using System.Data.SqlClient;
+using GUI_StudentManagement.Course;
 
 namespace GUI_StudentManagement.User
 {
-    public partial class ShowFullListForm : Form
+    public partial class btnAddcourse : Form
     {
-        public ShowFullListForm()
+        public btnAddcourse()
         {
             InitializeComponent();
         }
@@ -26,8 +27,9 @@ namespace GUI_StudentManagement.User
 
         void reloadListBoxData()
         {
-            this.listBoxGroup.DataSource = BUSGroup.getGroups(DTO_Global.GlobalUserId);
-            this.listBoxGroup.ValueMember = "Id";
+            this.listBoxGroup.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxGroup.DataSource = this.BUSGroup.getGroups(DTO_Global.GlobalUserId);
+            this.listBoxGroup.ValueMember = "id";
             this.listBoxGroup.DisplayMember = "name";
             this.listBoxGroup.SelectedItem = null;
 
@@ -59,6 +61,53 @@ namespace GUI_StudentManagement.User
             this.reloadListBoxData();
             SqlCommand command = new SqlCommand("SELECT fname as 'First Name', lname as 'Last Name', MyGroup.name as 'Group', phone,email,address,pic FROM Contact INNER JOIN MyGroup ON Contact.group_id = MyGroup.Id WHERE Contact.userid = " + DTO_Global.GlobalUserId);
             this.loadDataGridView(command);
+        }
+
+        private void listBoxGroup_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(this.listBoxGroup.SelectedValue.ToString());
+            this.showData(id);
+        }
+        private void showData(int idGrp)
+        {
+            try
+            {
+                DataTable table = this.BUSContact.getContactByGroupId(idGrp);
+                if (table != null)
+                {
+                    this.dataGridViewListContact.RowTemplate.Height = 80;
+                    this.dataGridViewListContact.DataSource = table;
+                    this.dataGridViewListContact.ReadOnly = true;
+                    DataGridViewImageColumn picCol = new DataGridViewImageColumn();
+
+                    picCol = (DataGridViewImageColumn)this.dataGridViewListContact.Columns[7];
+                    picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+                    this.dataGridViewListContact.AllowUserToAddRows = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: ", ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddCourseForContactForm form = new AddCourseForContactForm();
+            form.Show();
+        }
+
+        private void dataGridViewListContact_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int contactId = Convert.ToInt32(dataGridViewListContact.CurrentRow.Cells[0].Value.ToString());
+            if (this.BUSContact.checkIdContatct(contactId) == true)
+                MessageBox.Show("Contact don't have Course");
+            else
+            {
+                CourseGVForm form = new CourseGVForm(contactId);
+                form.Show();
+            }    
         }
     }
 }

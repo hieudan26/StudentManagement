@@ -44,6 +44,7 @@ namespace GUI_StudentManagement.User
             this.dataGridViewListContact.RowTemplate.Height = 24;
             this.dataGridViewListContact.Size = new System.Drawing.Size(778, 428);
             this.dataGridViewListContact.TabIndex = 3;
+            this.dataGridViewListContact.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListContact_CellContentClick);
             // 
             // SelectContactForm
             // 

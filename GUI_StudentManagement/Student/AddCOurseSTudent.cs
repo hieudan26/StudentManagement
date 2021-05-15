@@ -32,6 +32,7 @@ namespace GUI_StudentManagement.Student
         private void AddCOurseSTudent_Load(object sender, EventArgs e)
         {
             this.datagridSelected.DataSource = this.BUScourse.getCOURSELabelStudent(int.Parse(this.txtStudentId.Text), int.Parse(this.comboSem.Value.ToString()));
+            this.datagridAvailable.DataSource = BUScourse.getCOURSEsemester(1);
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -43,18 +44,26 @@ namespace GUI_StudentManagement.Student
                 table.Columns.Clear();
                 table.Columns.Add("label", typeof(string));
             }
-            string label = this.datagridAvailable.CurrentRow.Cells[0].Value.ToString();
-            DataRow row = table.NewRow();
-            row["label"] = label;
-            table.Rows.Add(row);
-            this.datagridSelected.DataSource = table;
+            try
+            {
+                string label = this.datagridAvailable.CurrentRow.Cells[0].Value.ToString();
+                DataRow row = table.NewRow();
+                row["label"] = label;
+                table.Rows.Add(row);
+                this.datagridSelected.DataSource = table;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
             
             string label = this.datagridSelected.CurrentRow.Cells[0].Value.ToString();
-            int id_cou = int.Parse(this.BUScourse.getCOURSELabel(label).Rows[0][0].ToString());
+            int id_cou = int.Parse(this.BUScourse.getCOURSELabel(label,int.Parse(this.comboSem.Value.ToString())).Rows[0][0].ToString());
             int id_stu = int.Parse(this.txtStudentId.Text);
             DTO_Score score = new DTO_Score(id_stu, id_cou, 0, "nothing");
             if (this.BUSscore.insertSCORE(score))

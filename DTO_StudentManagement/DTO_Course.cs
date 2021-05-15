@@ -10,17 +10,20 @@ namespace DTO_StudentManagement
 {
     public class DTO_Course
     {
+        private int iid;
         private string slabel;
         private int iperiod;
         private string sdescription;
         private int iSemester;
+        public int id { get => iid; set => iid = value; }
         public string label { get => slabel; set => slabel = value; }
         public int period { get => iperiod; set => iperiod = value; }
         public string description { get => sdescription; set => sdescription = value; }
         public int Semester { get => iSemester; set => iSemester = value; }
 
-        public DTO_Course(string label, int period, string description,int semester)
+        public DTO_Course(int id,string label, int period, string description,int semester)
         {
+            this.iid = id;
             this.slabel = label;
             this.iperiod = period;
             this.sdescription = description;

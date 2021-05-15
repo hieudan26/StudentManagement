@@ -28,27 +28,30 @@ namespace GUI_StudentManagement.Student
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(this.txtStudentId.Text);
-            string fname = txtFirstName.Text;
-            string lname = txtLastName.Text;
-            DateTime bdt = dateBirthDay.Value;
-            string phone = txtPhone.Text;
-            string adr = txtAddress.Text;
-            string gender = "Male";
-            if (radioFemale.Checked == true)
-                gender = "Female";
-            MemoryStream pic = new MemoryStream();
-            pictureStudent.Image.Save(pic, pictureStudent.Image.RawFormat);
-            DTO_Student student = new DTO_Student(id,lname,fname,bdt,phone,adr,gender,pic);
-            if(BUSstudent.verifyStudent(student) == true && student.verif()== true)
+            if (this.txtStudentId.Text != "")
             {
-                if (BUSstudent.insertStudent(student) == true)
+                int id = Convert.ToInt32(this.txtStudentId.Text);
+                string fname = txtFirstName.Text;
+                string lname = txtLastName.Text;
+                DateTime bdt = dateBirthDay.Value;
+                string phone = txtPhone.Text;
+                string adr = txtAddress.Text;
+                string gender = "Male";
+                if (radioFemale.Checked == true)
+                    gender = "Female";
+                MemoryStream pic = new MemoryStream();
+                pictureStudent.Image.Save(pic, pictureStudent.Image.RawFormat);
+                DTO_Student student = new DTO_Student(id, lname, fname, bdt, phone, adr, gender, pic);
+                if (BUSstudent.verifyStudent(student) == true && student.verif() == true)
                 {
-                    MessageBox.Show("New Student Added", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Add Error", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (BUSstudent.insertStudent(student) == true)
+                    {
+                        MessageBox.Show("New Student Added", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Add Error", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
 
@@ -69,16 +72,6 @@ namespace GUI_StudentManagement.Student
             Close();
         }
 
-        private void btnAddCourse_Click(object sender, EventArgs e)
-        {
-            if (this.txtStudentId.Text != "")
-            {
-                AddCOurseSTudent form = new AddCOurseSTudent();
-                form.txtStudentId.Text = this.txtStudentId.Text;
-                this.Hide();
-                form.ShowDialog();
-                this.Show();
-            }
-        }
+
     }
 }

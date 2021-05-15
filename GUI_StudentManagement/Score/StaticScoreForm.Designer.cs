@@ -29,115 +29,65 @@ namespace GUI_StudentManagement.Score
         /// </summary>
         private void InitializeComponent()
         {
-            this.LabelStatic = new System.Windows.Forms.Label();
-            this.labelXuatsac = new System.Windows.Forms.Label();
-            this.labelGioi = new System.Windows.Forms.Label();
-            this.labelKha = new System.Windows.Forms.Label();
-            this.labelTrungBinh = new System.Windows.Forms.Label();
-            this.labelYeu = new System.Windows.Forms.Label();
-            this.labelResult = new System.Windows.Forms.Label();
-            this.panelAVG = new System.Windows.Forms.FlowLayoutPanel();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            this.dGV = new System.Windows.Forms.DataGridView();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.dGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
-            // LabelStatic
+            // dGV
             // 
-            this.LabelStatic.AutoSize = true;
-            this.LabelStatic.Location = new System.Drawing.Point(223, 23);
-            this.LabelStatic.Name = "LabelStatic";
-            this.LabelStatic.Size = new System.Drawing.Size(70, 13);
-            this.LabelStatic.TabIndex = 1;
-            this.LabelStatic.Text = "static student";
+            this.dGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGV.Location = new System.Drawing.Point(31, 83);
+            this.dGV.Margin = new System.Windows.Forms.Padding(2);
+            this.dGV.Name = "dGV";
+            this.dGV.RowHeadersWidth = 51;
+            this.dGV.RowTemplate.Height = 24;
+            this.dGV.Size = new System.Drawing.Size(303, 284);
+            this.dGV.TabIndex = 1;
             // 
-            // labelXuatsac
+            // chart1
             // 
-            this.labelXuatsac.AutoSize = true;
-            this.labelXuatsac.Location = new System.Drawing.Point(485, 80);
-            this.labelXuatsac.Name = "labelXuatsac";
-            this.labelXuatsac.Size = new System.Drawing.Size(70, 13);
-            this.labelXuatsac.TabIndex = 2;
-            this.labelXuatsac.Text = "static student";
-            // 
-            // labelGioi
-            // 
-            this.labelGioi.AutoSize = true;
-            this.labelGioi.Location = new System.Drawing.Point(485, 135);
-            this.labelGioi.Name = "labelGioi";
-            this.labelGioi.Size = new System.Drawing.Size(70, 13);
-            this.labelGioi.TabIndex = 3;
-            this.labelGioi.Text = "static student";
-            // 
-            // labelKha
-            // 
-            this.labelKha.AutoSize = true;
-            this.labelKha.Location = new System.Drawing.Point(485, 198);
-            this.labelKha.Name = "labelKha";
-            this.labelKha.Size = new System.Drawing.Size(70, 13);
-            this.labelKha.TabIndex = 4;
-            this.labelKha.Text = "static student";
-            // 
-            // labelTrungBinh
-            // 
-            this.labelTrungBinh.AutoSize = true;
-            this.labelTrungBinh.Location = new System.Drawing.Point(485, 269);
-            this.labelTrungBinh.Name = "labelTrungBinh";
-            this.labelTrungBinh.Size = new System.Drawing.Size(70, 13);
-            this.labelTrungBinh.TabIndex = 5;
-            this.labelTrungBinh.Text = "static student";
-            // 
-            // labelYeu
-            // 
-            this.labelYeu.AutoSize = true;
-            this.labelYeu.Location = new System.Drawing.Point(485, 329);
-            this.labelYeu.Name = "labelYeu";
-            this.labelYeu.Size = new System.Drawing.Size(70, 13);
-            this.labelYeu.TabIndex = 6;
-            this.labelYeu.Text = "static student";
-            // 
-            // labelResult
-            // 
-            this.labelResult.AutoSize = true;
-            this.labelResult.Location = new System.Drawing.Point(608, 37);
-            this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(77, 13);
-            this.labelResult.TabIndex = 7;
-            this.labelResult.Text = "Student Result";
-            // 
-            // panelAVG
-            // 
-            this.panelAVG.Location = new System.Drawing.Point(51, 80);
-            this.panelAVG.Name = "panelAVG";
-            this.panelAVG.Size = new System.Drawing.Size(352, 331);
-            this.panelAVG.TabIndex = 8;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(356, 54);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Members";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(565, 361);
+            this.chart1.TabIndex = 2;
+            this.chart1.Text = "chart1";
+            title1.Name = "Members";
+            this.chart1.Titles.Add(title1);
             // 
             // StaticScoreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panelAVG);
-            this.Controls.Add(this.labelResult);
-            this.Controls.Add(this.labelYeu);
-            this.Controls.Add(this.labelTrungBinh);
-            this.Controls.Add(this.labelKha);
-            this.Controls.Add(this.labelGioi);
-            this.Controls.Add(this.labelXuatsac);
-            this.Controls.Add(this.LabelStatic);
+            this.ClientSize = new System.Drawing.Size(933, 450);
+            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.dGV);
             this.Name = "StaticScoreForm";
             this.Text = "StaticScoreForm";
             this.Load += new System.EventHandler(this.StaticScoreForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label LabelStatic;
-        private System.Windows.Forms.Label labelXuatsac;
-        private System.Windows.Forms.Label labelGioi;
-        private System.Windows.Forms.Label labelKha;
-        private System.Windows.Forms.Label labelTrungBinh;
-        private System.Windows.Forms.Label labelYeu;
-        private System.Windows.Forms.Label labelResult;
-        private System.Windows.Forms.FlowLayoutPanel panelAVG;
+
+        private System.Windows.Forms.DataGridView dGV;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

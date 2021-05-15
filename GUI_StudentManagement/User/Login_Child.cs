@@ -22,25 +22,50 @@ namespace GUI_StudentManagement
         {
             InitializeComponent();
         }
-
-        private void LoginButton_Click(object sender, EventArgs e)
+        private void choice(int id)
         {
-            if (this.txtUsername.Text == "" || this.txtPassword.Text == "")
+            DTO_Global.SetGlobalUserId(id);
+            if (this.rbHu.Checked == false && this.rbStu.Checked == false)
+            {
+                MessageBox.Show("You have to choose one");
+            }
+            else if (this.rbStu.Checked == true)
+            {
+                MenuStudent mainForm = new MenuStudent();
+                this.Hide();
+                mainForm.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                TeacherMenu form1 = new TeacherMenu();
+                form1.Show();
+            }
+        }
+
+
+        private void Login_Child_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLog_Click(object sender, EventArgs e)
+        { 
+            if (this.txtUser.Text == "" || this.txtPass.Text == "")
             {
                 MessageBox.Show("Invalid Username or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                DTO_Account DTOacc = new DTO_Account(this.txtUsername.Text, this.txtPassword.Text);
+                DTO_Account DTOacc = new DTO_Account(this.txtUser.Text, this.txtPass.Text);
 
                 if (this.BUSacc.loginAccount(DTOacc))
                 {
                     DialogResult dialogResult = MessageBox.Show("Login Successfully");
-                    DTO_Global.SetGlabelUserId(BUSUser.getIdByUserName(this.txtUsername.Text));
+                     DTO_Global.SetGlobalUserId(BUSUser.getIdByUserName(this.txtUser.Text));
                     //MenuStudent menu1 = new MenuStudent();
-                    AddContactForm menu1= new AddContactForm();
-                    menu1.Show();
-                    
+                    this.choice(DTO_Global.GlobalUserId);
+
                 }
                 else
                 {
@@ -49,9 +74,10 @@ namespace GUI_StudentManagement
             }
         }
 
-        private void Login_Child_Load(object sender, EventArgs e)
+        private void RegistLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            RegisterForm form = new RegisterForm();
+            form.Show();
         }
     }
 }

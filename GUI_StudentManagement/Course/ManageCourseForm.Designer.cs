@@ -210,6 +210,7 @@ namespace GUI_StudentManagement.Course
             this.listBox1.Size = new System.Drawing.Size(302, 290);
             this.listBox1.TabIndex = 24;
             this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
+            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
             // labelTotal
             // 

@@ -163,7 +163,7 @@ namespace GUI_StudentManagement.Student
             this.addCourseToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.addCourseToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.addCourseToolStripMenuItem.Name = "addCourseToolStripMenuItem";
-            this.addCourseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.addCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addCourseToolStripMenuItem.Text = "Add Course";
             this.addCourseToolStripMenuItem.Click += new System.EventHandler(this.addCourseToolStripMenuItem_Click);
             // 
@@ -172,7 +172,7 @@ namespace GUI_StudentManagement.Student
             this.removeCourseToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.removeCourseToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.removeCourseToolStripMenuItem.Name = "removeCourseToolStripMenuItem";
-            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeCourseToolStripMenuItem.Text = "Remove Course";
             this.removeCourseToolStripMenuItem.Click += new System.EventHandler(this.removeCourseToolStripMenuItem_Click);
             // 
@@ -181,7 +181,7 @@ namespace GUI_StudentManagement.Student
             this.editCourseToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.editCourseToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.editCourseToolStripMenuItem.Name = "editCourseToolStripMenuItem";
-            this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editCourseToolStripMenuItem.Text = "Edit Course";
             this.editCourseToolStripMenuItem.Click += new System.EventHandler(this.editCourseToolStripMenuItem_Click);
             // 
@@ -190,7 +190,7 @@ namespace GUI_StudentManagement.Student
             this.manageCourseToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.manageCourseToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.manageCourseToolStripMenuItem.Name = "manageCourseToolStripMenuItem";
-            this.manageCourseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.manageCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.manageCourseToolStripMenuItem.Text = "Manage Course";
             this.manageCourseToolStripMenuItem.Click += new System.EventHandler(this.manageCourseToolStripMenuItem_Click);
             // 
@@ -199,8 +199,9 @@ namespace GUI_StudentManagement.Student
             this.printToolStripMenuItem1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.printToolStripMenuItem1.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
-            this.printToolStripMenuItem1.Size = new System.Drawing.Size(157, 22);
+            this.printToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.printToolStripMenuItem1.Text = "Print";
+            this.printToolStripMenuItem1.Click += new System.EventHandler(this.printToolStripMenuItem1_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -250,6 +251,7 @@ namespace GUI_StudentManagement.Student
             this.toolStripPrintScore.Name = "toolStripPrintScore";
             this.toolStripPrintScore.Size = new System.Drawing.Size(183, 22);
             this.toolStripPrintScore.Text = "Print Result";
+            this.toolStripPrintScore.Click += new System.EventHandler(this.toolStripPrintScore_Click);
             // 
             // sCOREToolStripMenuItem
             // 
