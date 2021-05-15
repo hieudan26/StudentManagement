@@ -238,5 +238,15 @@ namespace GUI_StudentManagement.Student
             picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
             this.gridviewStudent.AllowUserToAddRows = false;
         }
+
+        private void btnUpLoadpic_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opnfd = new OpenFileDialog();
+            opnfd.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
+            if (opnfd.ShowDialog() == DialogResult.OK)
+            {
+                pictureStudent.Image = new Bitmap(opnfd.FileName);
+            }
+        }
     }
 }

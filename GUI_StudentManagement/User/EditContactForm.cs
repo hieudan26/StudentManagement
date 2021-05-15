@@ -43,12 +43,17 @@ namespace GUI_StudentManagement.User
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void buttonUpload_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Select Image (*.jpg; *.png; *.gif)| *.jpg; *.png; *.gif";
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                this.PictureBoxStudentImage.Image = Image.FromFile(opf.FileName);
+            }
         }
 
         private void buttonEdit_Click_1(object sender, EventArgs e)

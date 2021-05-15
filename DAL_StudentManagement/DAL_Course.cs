@@ -15,14 +15,14 @@ namespace DAL_StudentManagement
         {
             try
             {
-                SqlCommand command = new SqlCommand("INSERT INTO COURSE ( id,label, period, description,semester)" +
-                    "VALUES ( @id,@label, @period, @description,@semester)", this.getConnection);
+                SqlCommand command = new SqlCommand("INSERT INTO COURSE ( id,label, period, description,semester,group_id)" +
+                    "VALUES ( @id,@label, @period, @description,@semester,@group_id)", this.getConnection);
                 command.Parameters.Add("@id", SqlDbType.VarChar).Value = course.id;
                 command.Parameters.Add("@label", SqlDbType.VarChar).Value = course.label;
                 command.Parameters.Add("@period", SqlDbType.Int).Value = course.period;
                 command.Parameters.Add("@description", SqlDbType.VarChar).Value = course.description;
                 command.Parameters.Add("@semester", SqlDbType.Int).Value = course.Semester;
-
+                command.Parameters.Add("@group_id", SqlDbType.Int).Value = course.group_id;
                 this.openConnection();
                 if (command.ExecuteNonQuery() == 1)
                 {
@@ -162,24 +162,6 @@ namespace DAL_StudentManagement
                 return false;
             }
         }
-        public DataTable getCOURSELabeInsemester(int id_course,int semester)
-        {
-            try { 
-                SqlCommand command = new SqlCommand("SELECT StudentinCourse.id_student,StudentinCourse.fname,StudentinCourse.lname FROM COURSE inner join StudentinCourse on COURSE.id = StudentinCourse.id_course WHERE id_course = @id and semester=@semester", this.getConnection);
-                command.Parameters.Add("@id", SqlDbType.Int).Value = id_course;
-                command.Parameters.Add("@semester", SqlDbType.Int).Value = semester;
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                return table;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                DataTable table = new DataTable();
-                return table;
-            }
-        }
         public DataTable getCOURSELabelStudent(int id_student, int semester)
         {
             try
@@ -222,23 +204,6 @@ namespace DAL_StudentManagement
             {
                 SqlCommand command = new SqlCommand("SELECT * FROM COURSE  WHERE semester=@semester", this.getConnection);
                 command.Parameters.Add("@semester", SqlDbType.Int).Value = semester;
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                return table;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                DataTable table = new DataTable();
-                return table;
-            }
-        }
-        public DataTable getCOURSEbyStudentId(int id_student)
-        {
-            try { 
-                SqlCommand command = new SqlCommand("SELECT * FROM StudentinCourse Where id_student =@id_student", this.getConnection);
-                command.Parameters.Add("@id_student", SqlDbType.Int).Value = id_student;
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 DataTable table = new DataTable();
                 adapter.Fill(table);

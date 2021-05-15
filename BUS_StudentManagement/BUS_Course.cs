@@ -37,10 +37,6 @@ namespace BUS_StudentManagement
         {
             return DALcourse.updateCOURSE(course);
         }
-        public DataTable getCOURSELabeInsemester(int id_course, int semester)
-        {
-            return DALcourse.getCOURSELabeInsemester(id_course,semester);
-        }
         public DataTable getCOURSEsemester(int semester)
         {
             return DALcourse.getCOURSEsemester(semester);

@@ -113,10 +113,10 @@ namespace GUI_StudentManagement.User
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(41, 442);
+            this.buttonEdit.Location = new System.Drawing.Point(48, 442);
             this.buttonEdit.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(75, 19);
+            this.buttonEdit.Size = new System.Drawing.Size(75, 33);
             this.buttonEdit.TabIndex = 112;
             this.buttonEdit.Text = "Edit";
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click_1);

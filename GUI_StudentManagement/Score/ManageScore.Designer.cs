@@ -43,6 +43,7 @@ namespace GUI_StudentManagement.Score
             this.btnAVG = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
             this.btnScore = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,7 +120,7 @@ namespace GUI_StudentManagement.Score
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.Red;
-            this.btnAdd.Location = new System.Drawing.Point(146, 334);
+            this.btnAdd.Location = new System.Drawing.Point(50, 386);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(94, 39);
             this.btnAdd.TabIndex = 21;
@@ -177,11 +178,25 @@ namespace GUI_StudentManagement.Score
             this.btnScore.UseVisualStyleBackColor = true;
             this.btnScore.Click += new System.EventHandler(this.btnScore_Click);
             // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.Red;
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Location = new System.Drawing.Point(151, 333);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(95, 40);
+            this.btnEdit.TabIndex = 34;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // ManageScore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnScore);
             this.Controls.Add(this.btnStudent);
             this.Controls.Add(this.btnAVG);
@@ -221,5 +236,6 @@ namespace GUI_StudentManagement.Score
         private System.Windows.Forms.Button btnAVG;
         private System.Windows.Forms.Button btnStudent;
         private System.Windows.Forms.Button btnScore;
+        private System.Windows.Forms.Button btnEdit;
     }
 }

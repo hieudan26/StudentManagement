@@ -51,12 +51,12 @@ namespace GUI_StudentManagement.Student
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.groupStudent = new System.Windows.Forms.GroupBox();
+            this.btnFindId = new System.Windows.Forms.Button();
             this.btnUpLoadpic = new System.Windows.Forms.Button();
             this.pictureStudent = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnFindId = new System.Windows.Forms.Button();
             StudentIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewStudent)).BeginInit();
             this.groupStudent.SuspendLayout();
@@ -308,6 +308,19 @@ namespace GUI_StudentManagement.Student
             this.groupStudent.TabStop = false;
             this.groupStudent.Text = "Student";
             // 
+            // btnFindId
+            // 
+            this.btnFindId.BackColor = System.Drawing.Color.Gray;
+            this.btnFindId.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnFindId.Location = new System.Drawing.Point(177, 43);
+            this.btnFindId.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFindId.Name = "btnFindId";
+            this.btnFindId.Size = new System.Drawing.Size(129, 28);
+            this.btnFindId.TabIndex = 80;
+            this.btnFindId.Text = "Get information";
+            this.btnFindId.UseVisualStyleBackColor = false;
+            this.btnFindId.Click += new System.EventHandler(this.btnFindId_Click);
+            // 
             // btnUpLoadpic
             // 
             this.btnUpLoadpic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -320,6 +333,7 @@ namespace GUI_StudentManagement.Student
             this.btnUpLoadpic.Size = new System.Drawing.Size(58, 64);
             this.btnUpLoadpic.TabIndex = 69;
             this.btnUpLoadpic.UseVisualStyleBackColor = false;
+            this.btnUpLoadpic.Click += new System.EventHandler(this.btnUpLoadpic_Click);
             // 
             // pictureStudent
             // 
@@ -364,19 +378,6 @@ namespace GUI_StudentManagement.Student
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(222, 21);
             this.txtSearch.TabIndex = 70;
-            // 
-            // btnFindId
-            // 
-            this.btnFindId.BackColor = System.Drawing.Color.Gray;
-            this.btnFindId.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnFindId.Location = new System.Drawing.Point(177, 43);
-            this.btnFindId.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFindId.Name = "btnFindId";
-            this.btnFindId.Size = new System.Drawing.Size(129, 28);
-            this.btnFindId.TabIndex = 80;
-            this.btnFindId.Text = "Get information";
-            this.btnFindId.UseVisualStyleBackColor = false;
-            this.btnFindId.Click += new System.EventHandler(this.btnFindId_Click);
             // 
             // StudentManagementForm
             // 

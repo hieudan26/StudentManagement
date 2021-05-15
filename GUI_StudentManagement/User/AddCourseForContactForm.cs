@@ -36,7 +36,7 @@ namespace GUI_StudentManagement.User
                     int contactId = Convert.ToInt32(SelectContactF.dataGridViewListContact.CurrentRow.Cells[0].Value.ToString());
                     DataTable table = BUSContact.getContactById(contactId);
                     this.txtID.Text = table.Rows[0]["Id"].ToString();
-                }
+                }  
             }
             catch (Exception ex)
             {
@@ -80,6 +80,7 @@ namespace GUI_StudentManagement.User
             }
             else
             {
+                comboCourse.SelectedIndex = -1;
                 MessageBox.Show("One Or More Fields Are Empty Or Contact already have Course", "Add Contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

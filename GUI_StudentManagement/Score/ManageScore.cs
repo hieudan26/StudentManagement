@@ -98,5 +98,44 @@ namespace GUI_StudentManagement.Score
         {
 
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (this.txtID.Text == "" || this.txtScore.Text == "" || this.txtDescription.Text == "" || this.comboCourse.SelectedItem == "")
+            {
+                MessageBox.Show("Field Emty", "Edit Score", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int student_id = int.Parse(txtID.Text);
+                int course_id = int.Parse(this.comboCourse.SelectedValue.ToString());
+                string descrip = txtDescription.Text;
+                int scoreStudenbt = int.Parse(this.txtScore.Text);
+                try
+                {
+                    int id = Convert.ToInt32(txtID.Text);
+                    DTO_Score score = new DTO_Score(student_id, course_id, scoreStudenbt, descrip);
+                    if(scoreStudenbt <0 || scoreStudenbt > 10)
+                    {
+                        MessageBox.Show("Score error", "Edit Score", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if (BUSScore.updateCOURSE(score) == true)
+                        {
+                            MessageBox.Show("score informationg Updated", "Edit Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Edit Error", "Edit Score", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Edit Score", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
     }
 }

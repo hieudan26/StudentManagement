@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BUS_StudentManagement.BUS_Account">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAgAAAAAAABACAEAAgAAAAA=</HashCode>
+      <FileName>BUS_Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BUS_StudentManagement.BUS_Contact">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAQAKAIACAAAAAAACAAAACAAAAgAAIBAJAACAQ=</HashCode>
+      <FileName>BUS_Contact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BUS_StudentManagement.BUS_Course">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAgAAAAAICEAAAAAAABAIACgQBAAAA=</HashCode>
+      <FileName>BUS_Course.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BUS_StudentManagement.BUS_Group">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEgACAAIAAAAAAAAAAAAAAAFAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>BUS_Group.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BUS_StudentManagement.BUS_Score">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADABAAAABAAAAAAAQAAAAAAIACAAAQAAACBAgACAA=</HashCode>
+      <FileName>BUS_Score.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BUS_StudentManagement.BUS_Student">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAgAIAARAgAADAAAAAAAAQgEgAAAQAEAA=</HashCode>
+      <FileName>BUS_Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BUS_StudentManagement.BUS_User">
+    <Position X="11.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAgAgAAAAAAAAAASAAAAAAAAAAIEAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>BUS_User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BUS_StudentManagement.UserControl1" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserControl1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
