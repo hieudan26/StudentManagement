@@ -74,5 +74,9 @@ namespace BUS_StudentManagement
         {
             return DALcontact.checkIdinsertCourt(contact_id,course_id);
         }
+        public bool deleteCourseOfContact(int contact_id, int course_id)
+        {
+            return DALcontact.deleteCourseOfContact(contact_id, course_id);
+        }
     }
 }

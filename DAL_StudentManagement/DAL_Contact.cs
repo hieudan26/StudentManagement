@@ -110,8 +110,33 @@ namespace DAL_StudentManagement
         {
             try 
             { 
-                SqlCommand command = new SqlCommand("DELETE FROM Contact WHERE id= @id", this.getConnection);
+                SqlCommand command = new SqlCommand("DELETE FROM CourseOfContact WHERE id= @id", this.getConnection);
                 command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                this.openConnection();
+                if ((command.ExecuteNonQuery() == 1))
+                {
+                    this.closeConnection();
+                    return true;
+                }
+                else
+                {
+                    this.closeConnection();
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+        public bool deleteCourseOfContact(int contact_id, int course_id)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("DELETE FROM CourseOfContact WHERE contact_id=@contact_id AND course_id=@course_id", this.getConnection);
+                command.Parameters.Add("@contact_id", SqlDbType.Int).Value = contact_id;
+                command.Parameters.Add("@course_id", SqlDbType.VarChar).Value = course_id;
                 this.openConnection();
                 if ((command.ExecuteNonQuery() == 1))
                 {

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DAL_StudentManagement.DAL_Account">
+    <Position X="1" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAEAAAAAAAAAAAABACAEAAgAAAAA=</HashCode>
+      <FileName>DAL_Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL_StudentManagement.DAL_Contact">
+    <Position X="7.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAKAIACAACAAAACAAAACAAAAgAAIBAJAACAQ=</HashCode>
+      <FileName>DAL_Contact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL_StudentManagement.DAL_Course">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAgAAAAAACEAAAAAAAgAIACgQBAAAA=</HashCode>
+      <FileName>DAL_Course.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL_StudentManagement.DAL_Group">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEgAAAAIAAAAAAAAAAAAAAAFAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>DAL_Group.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL_StudentManagement.DAL_Score">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABAAAABAAAAAAAQAAAAAAIACAQAQAAACBAgACAA=</HashCode>
+      <FileName>DAL_Score.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL_StudentManagement.DAL_Student">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAIAARAgAADAAAAAAAAQgEgAAAQAEAA=</HashCode>
+      <FileName>DAL_Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL_StudentManagement.DAL_User">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAgAgAAAAAAAAAASAAAAAAAAAAAEAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>DAL_User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL_StudentManagement.myDB">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAABAQAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>myDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

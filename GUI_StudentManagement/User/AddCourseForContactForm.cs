@@ -117,12 +117,14 @@ namespace GUI_StudentManagement.User
             {
                 int contactID = int.Parse(this.txtID.Text);
                 DataTable table = BUSContact.getContactById(contactID);
+                
                 int semester = int.Parse(this.comboSem.Value.ToString());
                 if (table.Rows.Count <= 0)
                     MessageBox.Show("ID khong tim thay");
                 else
                 {
-                    comboCourse.DataSource = BUSCourse.getCOURSEEmptyGroup(semester, contactID);
+                    int groupID = int.Parse(table.Rows[0][3].ToString());
+                    comboCourse.DataSource = BUSCourse.getCOURSEEmptyGroup(semester, groupID);
                     comboCourse.DisplayMember = "label";
                     comboCourse.ValueMember = "Id";
                     comboCourse.SelectedIndex = -1;

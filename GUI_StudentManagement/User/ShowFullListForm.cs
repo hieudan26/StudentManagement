@@ -109,5 +109,11 @@ namespace GUI_StudentManagement.User
                 form.Show();
             }    
         }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            RemoveCourseFromContactForm form = new RemoveCourseFromContactForm();
+            form.Show();
+        }
     }
 }

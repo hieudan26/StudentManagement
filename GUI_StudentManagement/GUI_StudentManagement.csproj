@@ -245,6 +245,12 @@
     <Compile Include="User\Register_Child.Designer.cs">
       <DependentUpon>Register_Child.cs</DependentUpon>
     </Compile>
+    <Compile Include="User\RemoveCourseFromContactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\RemoveCourseFromContactForm.Designer.cs">
+      <DependentUpon>RemoveCourseFromContactForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\SelectContactForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -365,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User\Register_Child.resx">
       <DependentUpon>Register_Child.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\RemoveCourseFromContactForm.resx">
+      <DependentUpon>RemoveCourseFromContactForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\SelectContactForm.resx">
       <DependentUpon>SelectContactForm.cs</DependentUpon>

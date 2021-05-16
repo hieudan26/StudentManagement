@@ -22,6 +22,7 @@ namespace GUI_StudentManagement.User
         BUS_Score BUSScore = new BUS_Score();
         private int IDContact;
         int check = 0;
+        
         public CourseGVForm(int IDcontact)
         {
             InitializeComponent();
@@ -44,7 +45,7 @@ namespace GUI_StudentManagement.User
             this.listBoxGroup.ValueMember = "id";
             this.listBoxGroup.DisplayMember = "label";
             this.listBoxGroup.SelectedItem = null;
-            check = 1;
+            this.check = 1;
         }
 
         private void CourseGVForm_Load(object sender, EventArgs e)
