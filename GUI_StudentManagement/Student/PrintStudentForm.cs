@@ -128,102 +128,140 @@ namespace GUI_StudentManagement.Student
         }
         public void Export_Data_To_Word(DataGridView DGV, string filename)
         {
-            if (DGV.Rows.Count != 0)
+            try
             {
-                int RowCount = DGV.Rows.Count;
-                int ColumnCount = DGV.Columns.Count;
-                Object[,] DataArray = new object[RowCount + 1, ColumnCount + 1];
+                Microsoft.Office.Interop.Word.Application winword = new Microsoft.Office.Interop.Word.Application();
+                winword.ShowAnimation = false;
+                winword.Visible = false;
+                object missing = System.Reflection.Missing.Value;
+                Microsoft.Office.Interop.Word.Document document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
+                document.Content.SetRange(0, 0);
+                document.Content.Font.Color = Microsoft.Office.Interop.Word.WdColor.wdColorBlack;
 
-                //add row
-                int r = 0;
-                for (int c = 0; c <= ColumnCount - 1; c++)
+
+                Microsoft.Office.Interop.Word.Paragraph paraHeading = document.Content.Paragraphs.Add(ref missing);
+                paraHeading.Range.Text = "Bộ giáo dục và đào tạo Việt Nam";
+                paraHeading.Range.Font.Size = 14;
+                paraHeading.Range.Font.Name = "Times New Roman";
+                paraHeading.Range.Bold = 1;
+                paraHeading.Range.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                paraHeading.Range.Font.Color = Microsoft.Office.Interop.Word.WdColor.wdColorBlack;
+                paraHeading.Range.InsertParagraphAfter();
+
+                paraHeading.Range.Text = "Đại học Sư Phạm Kỹ Thuật";
+                paraHeading.Range.Font.Size = 16;
+                paraHeading.Range.Font.Name = "Times New Roman";
+                paraHeading.Range.Bold = 1;
+                paraHeading.Range.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                paraHeading.Range.Font.Color = Microsoft.Office.Interop.Word.WdColor.wdColorBlack;
+                paraHeading.Range.InsertParagraphAfter();
+                paraHeading.Range.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+                System.Data.DataTable table = DGV.DataSource as System.Data.DataTable;
+                this.ExporterObjects_Paragraph(ref document, table, ("Bảng các học sinh"));
+
+
+
+                // Word.WdParagraphAlignment.wdAlignParagraphRight;
+                //Save the document
+                document.SaveAs2(filename);
+
+                ((Microsoft.Office.Interop.Word._Document)document).Close(ref missing, ref missing, ref missing);
+                ((Microsoft.Office.Interop.Word._Application)winword).Quit(ref missing, ref missing, ref missing);
+
+
+                MessageBox.Show("Document created successfully !");
+                System.Diagnostics.Process.Start(filename);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ExporterObjects_Paragraph(ref Document document, System.Data.DataTable datatable, string namePara)
+        {
+            try
+            {
+                object missing = System.Reflection.Missing.Value;
+                Microsoft.Office.Interop.Word.Paragraph para = document.Content.Paragraphs.Add(ref missing);
+                para.Range.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
+                para.Range.Font.Bold = 1;
+                para.Range.Font.Size = 13;
+                para.Range.Font.Color = Microsoft.Office.Interop.Word.WdColor.wdColorBlack;
+                para.Range.Text = "\n" + namePara;
+                para.Range.InsertParagraphAfter();
+
+
+                para.Range.Font.Bold = 1;
+                para.Range.Font.Size = 10;
+                para.Range.Font.Color = Microsoft.Office.Interop.Word.WdColor.wdColorBlack;
+                para.Range.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
+                if (datatable.Rows.Count > 0)
                 {
-                    for (r = 0; r <= RowCount - 1; r++)
+                    Microsoft.Office.Interop.Word.Table firstTable = document.Tables.Add(para.Range, 1, datatable.Columns.Count, ref missing, ref missing);
+                    firstTable.AllowAutoFit = true;
+                    firstTable.Borders.Enable = 1;
+
+                    firstTable.Cell(1, 1).Range.Text = "ID student";
+                    firstTable.Cell(1, 2).Range.Text = "First Name";
+                    firstTable.Cell(1, 3).Range.Text = "Last Name";
+                    firstTable.Cell(1, 4).Range.Text = "Birth Date";
+                    firstTable.Cell(1, 5).Range.Text = "Gender";
+                    firstTable.Cell(1, 6).Range.Text = "Phone";
+                    firstTable.Cell(1, 7).Range.Text = "Address";
+                    firstTable.Cell(1, 8).Range.Text = "Picture";
+                    Object beforeRow = Type.Missing;
+
+                    para.Range.Font.Bold = 0;
+                    para.Range.Font.Size = 10;
+                    para.Range.Font.Color = Microsoft.Office.Interop.Word.WdColor.wdColorBlack;
+                    para.Range.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphLeft;
+
+
+                    for (int i = 0; i < datatable.Rows.Count; i++)
                     {
-                        DataArray[r, c] = DGV.Rows[r].Cells[c].Value;
+                        firstTable.Rows.Add(ref beforeRow);
+                        firstTable.Cell(i + 2, 1).Range.Text = datatable.Rows[i][0].ToString();
+                        firstTable.Cell(i + 2, 2).Range.Text = datatable.Rows[i][1].ToString();
+                        firstTable.Cell(i + 2, 3).Range.Text = datatable.Rows[i][2].ToString();
+                        firstTable.Cell(i + 2, 4).Range.Text = datatable.Rows[i][3].ToString();
+                        firstTable.Cell(i + 2, 5).Range.Text = datatable.Rows[i][4].ToString();
+                        firstTable.Cell(i + 2, 6).Range.Text = datatable.Rows[i][5].ToString();
+                        firstTable.Cell(i + 2, 7).Range.Text = datatable.Rows[i][6].ToString();
+                    }
+                    byte[] imgbyte;
+                    MemoryStream ms;
+                    Image finalPic;
+                    for (int i = 0; i < datatable.Rows.Count; i++)
+                    {
+                        imgbyte = (byte[])datatable.Rows[i][7];
+                        ms = new MemoryStream(imgbyte);
+                        finalPic = (Image)(new Bitmap(Image.FromStream(ms), new Size(50, 50)));
+                        Clipboard.SetDataObject(finalPic);
+                        firstTable.Cell(i + 2, 8).Range.Paste();
+                        firstTable.Cell(i + 2, 8).Range.InsertParagraph();
                     }
                 }
-
-                Document oDoc = new Document();
-                oDoc.Application.Visible = true;
-                //page orintation
-                oDoc.PageSetup.Orientation = WdOrientation.wdOrientLandscape;
-                dynamic oRange = oDoc.Content.Application.Selection.Range;
-                string oTemp = "";
-                for (r = 0; r <= RowCount - 1; r++)
+                else
                 {
-                    for (int c = 0; c <= ColumnCount - 1; c++)
-                    {
-                        oTemp = oTemp + DataArray[r, c] + "\t";
-                    }
+                    Microsoft.Office.Interop.Word.Table firstTable = document.Tables.Add(para.Range, 1, datatable.Columns.Count, ref missing, ref missing);
+                    firstTable.Borders.Enable = 1;
+                    firstTable.Cell(1, 1).Range.Text = "ID student";
+                    firstTable.Cell(1, 2).Range.Text = "First Name";
+                    firstTable.Cell(1, 3).Range.Text = "Last Name";
+                    firstTable.Cell(1, 4).Range.Text = "Birth Date";
+                    firstTable.Cell(1, 5).Range.Text = "Gender";
+                    firstTable.Cell(1, 6).Range.Text = "Phone";
+                    firstTable.Cell(1, 7).Range.Text = "Address";
+                    firstTable.Cell(1, 8).Range.Text = "Picture";
+                    Object beforeRow = Type.Missing;
                 }
-                //table format
-                oRange.Text = oTemp;
-
-                object Separator = WdTableFieldSeparator.wdSeparateByTabs;
-                object ApplyBorders = true;
-                object AutoFit = true;
-                object AutoFitBehavior = WdAutoFitBehavior.wdAutoFitContent;
-
-                oRange.ConvertToTable(ref Separator, ref RowCount, ref ColumnCount,
-                                      Type.Missing, Type.Missing, ref ApplyBorders,
-                                      Type.Missing, Type.Missing, Type.Missing,
-                                      Type.Missing, Type.Missing, Type.Missing,
-                                      Type.Missing, ref AutoFit, ref AutoFitBehavior, Type.Missing);
-
-                oRange.Select();
-
-                oDoc.Application.Selection.Tables[1].Select();
-                oDoc.Application.Selection.Tables[1].Rows.AllowBreakAcrossPages = 0;
-                oDoc.Application.Selection.Tables[1].Rows.Alignment = 0;
-                oDoc.Application.Selection.Tables[1].Rows[1].Select();
-                oDoc.Application.Selection.InsertRowsAbove(1);
-                oDoc.Application.Selection.Tables[1].Rows[1].Select();
-
-                //header row style
-                oDoc.Application.Selection.Tables[1].Rows[1].Range.Bold = 1;
-                oDoc.Application.Selection.Tables[1].Rows[1].Range.Font.Name = "Tahoma";
-                oDoc.Application.Selection.Tables[1].Rows[1].Range.Font.Size = 14;
-                
-                //add header row manually
-
-                oDoc.Application.Selection.Tables[1].Cell(1, 1).Range.Text = "ID student";
-                oDoc.Application.Selection.Tables[1].Cell(1, 2).Range.Text = "First Name";
-                oDoc.Application.Selection.Tables[1].Cell(1, 3).Range.Text = "Last Name";
-                oDoc.Application.Selection.Tables[1].Cell(1, 4).Range.Text = "Birth Date";
-                oDoc.Application.Selection.Tables[1].Cell(1, 5).Range.Text = "Gender";
-                oDoc.Application.Selection.Tables[1].Cell(1, 6).Range.Text = "Phone";
-                oDoc.Application.Selection.Tables[1].Cell(1, 7).Range.Text = "Address";
-                oDoc.Application.Selection.Tables[1].Cell(1, 8).Range.Text = "Picture";
-                //table style
-                oDoc.Application.Selection.Tables[1].set_Style("Grid Table 4 - Accent 5");
-                oDoc.Application.Selection.Tables[1].Rows[1].Select();
-                oDoc.Application.Selection.Cells.VerticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter;
-
-                //header text
-                foreach (Section section in oDoc.Application.ActiveDocument.Sections)
-                {
-                    Range headerRange = section.Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
-                    headerRange.Fields.Add(headerRange, WdFieldType.wdFieldPage);
-                    headerRange.Font.Size = 16;
-                    headerRange.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-                }
-                byte[] imgbyte;
-                MemoryStream ms;
-                Image finalPic;
-                //save image
-                for (r = 0; r <= RowCount - 1; r++)
-                {
-                    imgbyte = (byte[])gridviewStudent.Rows[r].Cells[7].Value;
-                    ms = new MemoryStream(imgbyte);
-                    finalPic = (Image)(new Bitmap(Image.FromStream(ms), new Size(70, 70)));
-                    Clipboard.SetDataObject(finalPic);
-                    oDoc.Application.Selection.Tables[1].Cell(r + 2, 8).Range.Paste();
-                    oDoc.Application.Selection.Tables[1].Cell(r + 2, 8).Range.InsertParagraph();
-                }
-                
-                //save the file
-                oDoc.SaveAs(filename);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(" Err " + ex.Message);
             }
         }
 
