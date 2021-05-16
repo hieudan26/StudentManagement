@@ -88,5 +88,11 @@ namespace GUI_StudentManagement.Score
                 this.txtsemester.Text = BUSCourse.getCOURSEId(idCourse).Rows[0][4].ToString();
             }
         }
+
+        private void txtID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
     }
 }

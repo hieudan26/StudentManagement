@@ -237,6 +237,7 @@ namespace GUI_StudentManagement.Student
             this.txtStudentId.Name = "txtStudentId";
             this.txtStudentId.Size = new System.Drawing.Size(205, 21);
             this.txtStudentId.TabIndex = 23;
+            this.txtStudentId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentId_KeyPress);
             // 
             // groupAdd
             // 

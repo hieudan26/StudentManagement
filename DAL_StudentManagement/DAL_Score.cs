@@ -129,7 +129,7 @@ namespace DAL_StudentManagement
         {
             try
             {
-                SqlCommand command = new SqlCommand("SELECT DISTINCT ROW_NUMBER() OVER (ORDER BY id) AS [STT],student_id as [ID], fname as [First Name], lname as [Last Name],bdate as DoB,Score.student_score  FROM Score inner join std on  Score.student_id = std.id WHERE course_id = @course_id", this.getConnection);
+                SqlCommand command = new SqlCommand("SELECT DISTINCT ROW_NUMBER() OVER (ORDER BY id) AS [STT],student_id as [ID], fname as [First Name], lname as [Last Name],bdate as DoB,Score.student_score as Score  FROM Score inner join std on  Score.student_id = std.id WHERE course_id = @course_id", this.getConnection);
                 command.Parameters.Add("@course_id", SqlDbType.Int).Value = idCourse;
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 DataTable table = new DataTable();

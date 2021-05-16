@@ -49,6 +49,7 @@ namespace GUI_StudentManagement.Score
             // 
             // comboCourse
             // 
+            this.comboCourse.Enabled = false;
             this.comboCourse.FormattingEnabled = true;
             this.comboCourse.Location = new System.Drawing.Point(146, 115);
             this.comboCourse.Name = "comboCourse";
@@ -114,6 +115,7 @@ namespace GUI_StudentManagement.Score
             // 
             this.txtID.Location = new System.Drawing.Point(146, 73);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(145, 20);
             this.txtID.TabIndex = 22;
             // 

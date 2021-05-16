@@ -71,6 +71,7 @@ namespace Login_form
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(145, 20);
             this.txtID.TabIndex = 2;
+            this.txtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtID_KeyPress);
             // 
             // txtLabel
             // 
@@ -124,6 +125,7 @@ namespace Login_form
             this.txtPeriod.Name = "txtPeriod";
             this.txtPeriod.Size = new System.Drawing.Size(113, 20);
             this.txtPeriod.TabIndex = 9;
+            this.txtPeriod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeriod_KeyPress);
             // 
             // txtSemester
             // 
@@ -131,6 +133,7 @@ namespace Login_form
             this.txtSemester.Name = "txtSemester";
             this.txtSemester.Size = new System.Drawing.Size(92, 20);
             this.txtSemester.TabIndex = 11;
+            this.txtSemester.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSemester_KeyPress);
             // 
             // labelSemester
             // 

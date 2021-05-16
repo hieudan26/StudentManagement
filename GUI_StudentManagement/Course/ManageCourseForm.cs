@@ -119,7 +119,7 @@ namespace GUI_StudentManagement.Course
                 {
                     MessageBox.Show("Invalid Label!!", "Invalid Label", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (period > 10)
+                else if (period >= 10)
                 {
                     try
                     {

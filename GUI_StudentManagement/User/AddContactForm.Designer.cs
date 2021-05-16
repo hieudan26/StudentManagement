@@ -99,6 +99,7 @@ namespace GUI_StudentManagement.User
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(68, 20);
             this.textBoxId.TabIndex = 84;
+            this.textBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxId_KeyPress);
             // 
             // label1
             // 

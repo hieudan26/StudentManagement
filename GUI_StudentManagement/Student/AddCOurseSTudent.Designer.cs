@@ -67,6 +67,7 @@ namespace GUI_StudentManagement.Student
             this.txtStudentId.Location = new System.Drawing.Point(83, 47);
             this.txtStudentId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtStudentId.Name = "txtStudentId";
+            this.txtStudentId.ReadOnly = true;
             this.txtStudentId.Size = new System.Drawing.Size(105, 20);
             this.txtStudentId.TabIndex = 24;
             // 

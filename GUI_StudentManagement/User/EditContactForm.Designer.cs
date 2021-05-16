@@ -86,6 +86,7 @@ namespace GUI_StudentManagement.User
             this.textBoxId.Location = new System.Drawing.Point(146, 24);
             this.textBoxId.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxId.Name = "textBoxId";
+            this.textBoxId.ReadOnly = true;
             this.textBoxId.Size = new System.Drawing.Size(105, 20);
             this.textBoxId.TabIndex = 108;
             // 

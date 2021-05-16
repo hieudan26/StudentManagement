@@ -42,6 +42,7 @@ namespace GUI_StudentManagement.User
             // 
             this.txtID.Location = new System.Drawing.Point(12, 64);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(165, 20);
             this.txtID.TabIndex = 0;
             this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);

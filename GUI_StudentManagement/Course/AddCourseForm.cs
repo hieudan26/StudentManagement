@@ -28,37 +28,42 @@ namespace Login_form
             }
             else
             {
-                
-                int Id = int.Parse(this.txtID.Text);
-                string Label = this.txtLabel.Text;
-                int period = int.Parse(this.txtPeriod.Text);
-                string desciption = this.txtDescription.Text;
-                int semester = int.Parse(this.txtSemester.Text);
-                int groupid = (int)comboBoxGroup.SelectedValue;
-                DTO_Course Course = new DTO_Course(Id,Label,period, desciption,semester,groupid);
-                DataTable tb = BUScourse.getCOURSEId(Id);
-                DataTable tb2 = BUScourse.getCOURSELabel(Label, semester);
-                if (tb.Rows.Count > 0)
+                try
                 {
-                    MessageBox.Show("Register Error ID existence", "Add COURSE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (tb2.Rows.Count > 0)
-                {
-                    MessageBox.Show("Register Error Label existence", "Add COURSE", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (Course.verif())
-                {
-                    if (BUScourse.insertCOURSE(Course) == true)
+                    int Id = int.Parse(this.txtID.Text);
+                    string Label = this.txtLabel.Text;
+                    int period = int.Parse(this.txtPeriod.Text);
+                    string desciption = this.txtDescription.Text;
+                    int semester = int.Parse(this.txtSemester.Text);
+                    int groupid = (int)comboBoxGroup.SelectedValue;
+                    DTO_Course Course = new DTO_Course(Id, Label, period, desciption, semester, groupid);
+                    DataTable tb = BUScourse.getCOURSEId(Id);
+                    DataTable tb2 = BUScourse.getCOURSELabel(Label, semester);
+                    if (tb.Rows.Count > 0)
                     {
-                        MessageBox.Show("Add succesfully", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //Close();
+                        MessageBox.Show("Register Error ID existence", "Add COURSE", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else
+                    if (tb2.Rows.Count > 0)
                     {
-                        MessageBox.Show("Register Error", "Add User", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Register Error Label existence", "Add COURSE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (Course.verif())
+                    {
+                        if (BUScourse.insertCOURSE(Course) == true)
+                        {
+                            MessageBox.Show("Add succesfully", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Register Error", "Add User", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
-               
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -73,6 +78,24 @@ namespace Login_form
             this.comboBoxGroup.DataSource = BUSGroup.getGroups(DTO_Global.GlobalUserId);
             this.comboBoxGroup.DisplayMember = "name";
             this.comboBoxGroup.ValueMember = "Id";
+        }
+
+        private void txtID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtSemester_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtPeriod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

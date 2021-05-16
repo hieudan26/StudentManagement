@@ -95,6 +95,7 @@ namespace GUI_StudentManagement.Score
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(77, 20);
             this.txtID.TabIndex = 11;
+            this.txtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtID_KeyPress);
             // 
             // btnAdd
             // 
